@@ -10,6 +10,10 @@ Page({
     authSetting: false,//用户是否授权
     driver:true,//是否是司机
   },
+  // 获取用户信息
+  bindGetUserInfo:function(e){
+    console.log(e.detail.userInfo)
+  },
   // 默认加载
   onLoad: function (){
     var t = this;
@@ -23,17 +27,17 @@ Page({
           } else {
             //用户没有授权
             t.setData({authSetting:false});
-            wx.login({
-              success (res) {
-                //发起网络请求
-                wx.request({
-                  url: 'https://test.com/onLogin',
-                  data: {
-                    code: res.code
-                  }
-                })
-              }
-            })
+            // wx.login({
+            //   success (res) {
+            //     //发起网络请求
+            //     wx.request({
+            //       url: 'https://test.com/onLogin',
+            //       data: {
+            //         code: res.code
+            //       }
+            //     })
+            //   }
+            // })
           }
         }
       });

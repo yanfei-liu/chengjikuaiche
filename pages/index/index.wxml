@@ -13,7 +13,8 @@
 <!-- 申请授权 -->
 <view class="v2">
   <view>该小程序需要您进行授权登录</view>
-  <button type="primary" open-type="getUserInfo">授权</button>
+  <!-- <button type="primary" open-type="getUserInfo">授权</button> -->
+  <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 
 
