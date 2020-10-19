@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="v" wx:if="{{authSetting}}">
   <view class="m" style="position: absolute;z-index: 1;">
-    <map name="m" class="maps"></map>
+    <maps id="maps"></maps>
   </view>
   <view class="bottom2" style="position: absolute;z-index: 2;">
     <view bindtap="goToViews" data-id="1" wx:if="{{!driver}}">叫车</view>
@@ -14,20 +14,5 @@
 <view class="v2">
   <view>该小程序需要您进行授权登录</view>
   <!-- <button type="primary" open-type="getUserInfo">授权</button> -->
-  <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button type="button" bindtap="grant">授权登录</button>
 </view>
-
-
-<!-- <view class="container">
-  
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->

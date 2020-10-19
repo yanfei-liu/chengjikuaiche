@@ -8,6 +8,11 @@
     "pages/other/customer/customer",
     "pages/call/call"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于在小程序中显示您的位置"
+    }
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",

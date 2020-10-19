@@ -1,18 +1,19 @@
 //index.js
 //获取应用实例
 const app = getApp()
+
 Page({
   data: {
+
+    appId:'wx9616cb5f7cfbe837',
+    secret:'2797b46b7d86f643b6235b2a53312663',
+
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     authSetting: false,//用户是否授权
     driver:true,//是否是司机
-  },
-  // 获取用户信息
-  bindGetUserInfo:function(e){
-    console.log(e.detail.userInfo)
   },
   // 默认加载
   onLoad: function (){
@@ -21,23 +22,14 @@ Page({
     //查看是否授权
     wx.getSetting({
         success: function(res) {
-          if (!res.authSetting['scope.userInfo']) {
+          if (res.authSetting['scope.userInfo']) {
             // 用户授权了
             t.setData({authSetting:res.authSetting['scope.userInfo']});
+            // 获取当前定位
+            t.selectComponent("#maps").getPosition()
           } else {
             //用户没有授权
             t.setData({authSetting:false});
-            // wx.login({
-            //   success (res) {
-            //     //发起网络请求
-            //     wx.request({
-            //       url: 'https://test.com/onLogin',
-            //       data: {
-            //         code: res.code
-            //       }
-            //     })
-            //   }
-            // })
           }
         }
       });
@@ -61,46 +53,33 @@ Page({
 
     }
   },
+  // 用户授权登陆
+  grant:function(e){
+    var t = this
+    // 获取临时code
+    wx.login({
+      success (res) {
+        if (res.code) {
+          // 获取openId等敏感信息
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session?appid='
+            +t.data.appId+'&secret='
+            +t.data.secret+'&js_code='
+            +res.code+'&grant_type=authorization_code',
+            // data: {
+            //   code: res.code
+            // },
+            success (res){
+              console.log(res)
+            },
+            fail (err){
 
-  // bindViewTap: function() {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
-  // onLoad: function () {
-  //   if (app.globalData.userInfo) {
-  //     this.setData({
-  //       userInfo: app.globalData.userInfo,
-  //       hasUserInfo: true
-  //     })
-  //   } else if (this.data.canIUse){
-  //     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-  //     // 所以此处加入 callback 以防止这种情况
-  //     app.userInfoReadyCallback = res => {
-  //       this.setData({
-  //         userInfo: res.userInfo,
-  //         hasUserInfo: true
-  //       })
-  //     }
-  //   } else {
-  //     // 在没有 open-type=getUserInfo 版本的兼容处理
-  //     wx.getUserInfo({
-  //       success: res => {
-  //         app.globalData.userInfo = res.userInfo
-  //         this.setData({
-  //           userInfo: res.userInfo,
-  //           hasUserInfo: true
-  //         })
-  //       }
-  //     })
-  //   }
-  // },
-  // getUserInfo: function(e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
-  // }
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
 })
