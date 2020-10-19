@@ -1,0 +1,10 @@
+/* pages/other/driver/driver.wxss */
+.v input{
+  border: 1rpx solid cadetblue;
+}
+.v button{
+  width: 100%;
+  color: white;
+  background-color: cadetblue;
+  padding: 0;
+}

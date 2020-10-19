@@ -1,0 +1,16 @@
+<!--pages/other/driver/driver.wxml-->
+<view class="v">
+  <form bindsubmit="sub">
+
+    <label>姓名</label>
+    <input name="name" type="text"/>
+
+    <label>性别</label>
+    <radio-group name="sex">
+      <radio value="1">男</radio>
+      <radio value="2">女</radio>
+    </radio-group>
+
+    <button form-type="submit">提交</button>
+  </form>
+</view>

@@ -1,0 +1,7 @@
+/* pages/other/other.wxss */
+.v view{
+  background-color: cadetblue;
+  padding: 10px;
+  color: white;
+  margin-bottom: 1px;
+}
