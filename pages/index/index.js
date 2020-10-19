@@ -7,7 +7,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    driver:true,//是否是司机
   },
   //事件处理函数
   // 跳转至其它页面
@@ -15,7 +16,7 @@ Page({
     let i = e.currentTarget.dataset.id;
     if(i == 1){
       wx.navigateTo({
-        url: '/pages/other/other',
+        url: '/pages/call/call',
       })
     }else if(i == 2){
       wx.navigateTo({

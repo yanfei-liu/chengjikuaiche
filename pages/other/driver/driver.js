@@ -44,9 +44,8 @@ Page({
     this.setData(changed);
   },
   // 上传图片
-  chooseImg: function(){
-    var that = this;
-    console.log(11111)
+  chooseImg: function(e){
+    var t = this;
     wx.chooseImage({
         // 最多可以选择几张
         count: 1,
@@ -57,11 +56,41 @@ Page({
         success (res) {
             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
             const tempFilePaths = res.tempFilePaths
-            console.log(tempFilePaths)
+            var p = e.target.dataset['prop'];
+            var changed = {};
+            changed[p] = tempFilePaths;
+            t.setData(changed);
+
+            // wx.uploadFile({
+            //   url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+            //   filePath: tempFilePaths,
+            //   name: 'file',
+            //   formData: {
+            //     'user': 'test'
+            //   },
+            //   success (res){
+            //     const data = res.data
+            //     //do something
+            //   }
+            // })
         }
-    })
+    });
+
   },
   sub:function(e){
     console.log(this.data)
+    wx.request({
+      url: 'test.php', //仅为示例，并非真实的接口地址
+      data: {
+        x: '',
+        y: ''
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+      }
+    })
   }
 })

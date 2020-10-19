@@ -5,7 +5,8 @@
     "pages/other/other",
     "pages/other/driver/driver",
     "pages/other/history/history",
-    "pages/other/customer/customer"
+    "pages/other/customer/customer",
+    "pages/call/call"
   ],
   "window":{
     "backgroundTextStyle":"light",

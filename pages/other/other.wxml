@@ -1,6 +1,7 @@
 <!--pages/other/other.wxml-->
 <view class="v">
-  <view bindtap="goToViews" data-id="1">申请成为司机</view>
+  <view bindtap="goToViews" data-id="1" wx:if="{{!driver}}">申请成为司机</view>
   <view bindtap="goToViews" data-id="2">历史订单</view>
   <view bindtap="goToViews" data-id="3">客服</view>
+  <view bindtap="goToViews" data-id="4" wx:if="{{driver}}">提现</view>
 </view>
