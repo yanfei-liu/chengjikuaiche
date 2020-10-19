@@ -8,3 +8,7 @@
   background-color: cadetblue;
   padding: 0;
 }
+.v image{
+  width: 100px;
+  height: 100px;
+}
