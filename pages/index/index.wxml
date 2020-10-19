@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="v">
+<view class="v" wx:if="{{authSetting}}">
   <view class="m" style="position: absolute;z-index: 1;">
     <map name="m" class="maps"></map>
   </view>
@@ -8,6 +8,12 @@
     <!-- <view bindtap="goToViews" data-id="3" wx:if="{{driver}}">接单</view> -->
     <view bindtap="goToViews" data-id="2">我的</view>
   </view>
+</view>
+
+<!-- 申请授权 -->
+<view class="v2">
+  <view>该小程序需要您进行授权登录</view>
+  <button type="primary" open-type="getUserInfo">授权</button>
 </view>
 
 

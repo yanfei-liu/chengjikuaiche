@@ -1,16 +1,43 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    authSetting: false,//用户是否授权
     driver:true,//是否是司机
   },
-  //事件处理函数
+  // 默认加载
+  onLoad: function (){
+    var t = this;
+    // 打开后就申请授权登录
+    //查看是否授权
+    wx.getSetting({
+        success: function(res) {
+          if (!res.authSetting['scope.userInfo']) {
+            // 用户授权了
+            t.setData({authSetting:res.authSetting['scope.userInfo']});
+          } else {
+            //用户没有授权
+            t.setData({authSetting:false});
+            wx.login({
+              success (res) {
+                //发起网络请求
+                wx.request({
+                  url: 'https://test.com/onLogin',
+                  data: {
+                    code: res.code
+                  }
+                })
+              }
+            })
+          }
+        }
+      });
+  },
   // 跳转至其它页面
   goToViews: function(e){
     let i = e.currentTarget.dataset.id;
