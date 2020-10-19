@@ -2,23 +2,27 @@
 <view class="v">
   <form bindsubmit="sub">
 
-    <label>身份证号</label>
-    <input type="text" value="{{nameId}}" bindinput="nameIdHandle"/>
-
     <label>姓名</label>
-    <input type="text" value="{{name}}" bindinput="nameHandle"/>
+    <input type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
+
+    <label>身份证号</label>
+    <input type="text" value="{{nameId}}" bindinput="inputHandle" data-prop="nameId"/>
 
     <label>联系电话</label>
-    <input type="text" value="{{phone}}" bindinput="phoneHandle"/>
+    <input type="text" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
 
     <label>身份证正面</label>
     <view>
       <image type="text" src="{{nameIdA}}"/>
-      <button bindtap="uploadImg">上传</button>
+      <button type="button" bindtab="chooseImg" data-prop="nameId">上传</button>
     </view>
 
-    <label>身份证背面</label>
+    <!-- <label>身份证背面</label>
     <input type="text" value="{{nameIdB}}" bindinput="nameIdBHandle"/>
+    <view>
+      <image type="text" src="{{nameIdB}}"/>
+      <button type="button" bindtap="chooseImg" data-prop="nameId">上传</button>
+    </view>
 
     <label>驾驶证正面</label>
     <input type="text" value="{{driversA}}" bindinput="driversAHandle"/>
@@ -27,13 +31,13 @@
     <input type="text" value="{{driversB}}" bindinput="driversBHandle"/>
 
     <label>车辆型号</label>
-    <input type="text" value="{{vehicleModel}}" bindinput="vehicleModelHandle"/>
+    <input type="text" value="{{vehicleModel}}" bindinput="inputHandle"/>
 
     <label>车辆颜色</label>
-    <input type="text" value="{{vehicleColor}}" bindinput="vehicleColorHandle"/>
+    <input type="text" value="{{vehicleColor}}" bindinput="inputHandle"/>
 
     <label>出厂日期</label>
-    <input type="text" value="{{vehicleDate}}" bindinput="vehicleDateHandle"/>
+    <input type="text" value="{{vehicleDate}}" bindinput="inputHandle"/>
 
     <label>行驶证正本</label>
     <input type="text" value="{{drivingA}}" bindinput="drivingAHandle"/>
@@ -45,14 +49,14 @@
     <input type="text" value="{{head}}" bindinput="headHandle"/>
 
     <label>车尾照片</label>
-    <input type="text" value="{{rear}}" bindinput="rearHandle"/>
+    <input type="text" value="{{rear}}" bindinput="rearHandle"/> -->
 
     <!-- <label>性别</label>
     <radio-group>
       <radio value="1">男</radio>
       <radio value="2">女</radio>
     </radio-group> -->
-
-    <button form-type="submit">提交</button>
+    <label></label>
+    <button type="button" bindtap="sub">提交</button>
   </form>
 </view>
