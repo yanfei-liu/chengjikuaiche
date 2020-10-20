@@ -9,7 +9,7 @@
   border-bottom: 1px solid cadetblue;
 }
 .tr:nth-of-type(even){
-  background-color: rgb(40, 95, 77);
+  background-color: cadetblue;
   color: white;
 }
 .th,.td{
