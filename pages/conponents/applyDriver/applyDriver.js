@@ -92,7 +92,7 @@ Component({
     sub(e){
       console.log(this.data)
       wx.request({
-        url: 'test.php', //仅为示例，并非真实的接口地址
+        url: 'test.php',
         data: {
           x: '',
           y: ''
