@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="v" wx:if="{{authSetting}}">
+<view class="v" wx:if="{{canIUse}}">
   <view class="m" style="position: absolute;z-index: 1;">
     <maps id="maps"></maps>
   </view>
@@ -11,8 +11,8 @@
 </view>
 
 <!-- 申请授权 -->
-<view class="v2">
+<view class="v2" wx:if="{{!canIUse}}">
   <view>该小程序需要您进行授权登录</view>
-  <!-- <button type="primary" open-type="getUserInfo">授权</button> -->
-  <button type="button" bindtap="grant">授权登录</button>
+  <button type="primary" open-type="getUserInfo">授权</button>
+  <!-- <button type="button" bindtap="grant">授权登录</button> -->
 </view>
