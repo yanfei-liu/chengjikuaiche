@@ -18,6 +18,11 @@ Page({
     // 判断是否是司机
     this.setData({driver:app.globalData.driver})
   },
+  // 手动定位
+  position:function(e){
+    // 加载当前定位
+    this.selectComponent("#maps").getPosition()
+  },
   // 跳转至其它页面
   goToViews: function(e){
     let i = e.currentTarget.dataset.id;

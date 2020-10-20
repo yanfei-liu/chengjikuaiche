@@ -29,7 +29,7 @@ Component({
     getPosition(){
       var t = this;
       wx.getLocation({
-        type: 'wgs84',
+        type: 'gcj02',
         success (res) {
           const latitude = res.latitude
           const longitude = res.longitude
