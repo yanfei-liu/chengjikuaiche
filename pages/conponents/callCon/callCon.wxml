@@ -1,3 +1,17 @@
 <!--pages/conponents/callCon/callCon.wxml-->
-<text>乘坐人数</text>
-<text>有无行李</text>
+<view>
+  <view>
+    <label>乘客人数</label>
+    <input type="number" value="{{numPeo}}" bindinput="inputHandle" data-prop="numPeo"/>
+  </view>
+
+  <view>
+    <label>是否有大件行李</label>
+    <radio-group value="{{large}}" bindchange="inputHandle" data-prop="large">
+      <radio value="0" checked="{{large == 0}}">否</radio>
+      <radio value="1" checked="{{large == 1}}">是</radio>
+    </radio-group>
+  </view>
+
+  <view class="btn" bindtap="sub">确定下单</view>
+</view>

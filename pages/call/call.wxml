@@ -3,7 +3,7 @@
   <view>
     请选择路线
   </view>
-  <view wx:for="{{routes}}" wx:for-item="item" class="route">
+  <view wx:for="{{routes}}" wx:key="item" class="route">
     <view>{{'线路'+(index+1)}}: {{item.route}}({{item.price}}元)</view>
     <view>
       <view bindtap="callCar" data-call="1">拼车</view>

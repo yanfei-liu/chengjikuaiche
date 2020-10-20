@@ -2,11 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/other/other",
     "pages/other/driver/driver",
-    "pages/other/history/history",
-    "pages/other/customer/customer",
-    "pages/call/call"
+    "pages/call/call",
+    "pages/my/my"
   ],
   "permission": {
     "scope.userLocation": {

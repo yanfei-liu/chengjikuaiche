@@ -8,11 +8,15 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
-    driver:false,//是否是司机
+    // 是否是司机
+    driver: false
   },
   // 默认加载
   onLoad: function (e){
+    // 加载当前定位
     this.selectComponent("#maps").getPosition()
+    // 判断是否是司机
+    this.setData({driver:app.globalData.driver})
   },
   // 跳转至其它页面
   goToViews: function(e){
@@ -23,7 +27,7 @@ Page({
       })
     }else if(i == 2){
       wx.navigateTo({
-        url: '/pages/other/other',
+        url: '/pages/my/my',
       })
     }else if(i == 3){
       wx.navigateTo({
