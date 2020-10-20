@@ -11,7 +11,18 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    arr:[
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+      {createDate:'2011-01-01',route:'石家庄-石家庄'},
+    ]
   },
 
   /**
