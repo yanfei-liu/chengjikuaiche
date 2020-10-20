@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
-    driver:true,//是否是司机
+    driver:false,//是否是司机
   },
   // 默认加载
   onLoad: function (e){

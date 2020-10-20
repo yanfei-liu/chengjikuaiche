@@ -1,1 +1,19 @@
 /* pages/call/call.wxss */
+.route{
+  width: 100%;
+  height: 100rpx;
+  background-color:cadetblue;
+  color: white;
+  margin-bottom: 3px;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.route view{
+  float: left;
+}
+.route :nth-child(2){
+  float: right;
+  margin-left: 20rpx;
+  margin-right: 5rpx;
+}

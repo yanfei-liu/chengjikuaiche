@@ -1,2 +1,16 @@
 <!--pages/call/call.wxml-->
-<text>pages/call/call.wxml</text>
+<view wx:if="{{call}}">
+  <view>
+    请选择路线
+  </view>
+  <view wx:for="{{routes}}" wx:for-item="item" class="route">
+    <view>{{'线路'+(index+1)}}: {{item.route}}({{item.price}}元)</view>
+    <view>
+      <view bindtap="callCar" data-call="1">拼车</view>
+      <view bindtap="callCar" data-call="2">包车</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{!call}}">
+  <callCon id="callCon"></callCon>
+</view>
