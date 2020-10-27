@@ -1,4 +1,5 @@
 // pages/call/call.js
+const app = getApp()
 Page({
 
   /**
@@ -6,14 +7,7 @@ Page({
    */
   data: {
     call:true,
-    routes:[
-      {route:'石家庄-石家庄',price:150},
-      {route:'a-c',price:150},
-      {route:'a-d',price:150},
-      {route:'a-e',price:150},
-      {route:'b-a',price:150},
-      {route:'c-b',price:150}
-    ]
+    routes:[]
   },
   callCar: function(e){
     this.setData({
@@ -25,7 +19,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this;
+    // 加载路线数据
+    app.wxRequest(
+      "GET",
+      app.globalData.url+'/route/findAll',
+      null,
+      function(e){
+        that.setData({routes:e})
+      },
+      function(e){
+        console.log(e)
+      }
+    )
   },
 
   /**

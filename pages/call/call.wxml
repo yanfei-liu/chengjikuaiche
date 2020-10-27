@@ -1,13 +1,14 @@
 <!--pages/call/call.wxml-->
 <view wx:if="{{call}}">
-  <view>
-    请选择路线
-  </view>
+  <view>请选择路线</view>
   <view wx:for="{{routes}}" wx:key="item" class="route">
-    <view>{{'线路'+(index+1)}}: {{item.route}}({{item.price}}元)</view>
-    <view>
-      <view bindtap="callCar" data-call="1">拼车</view>
-      <view bindtap="callCar" data-call="2">包车</view>
+    <view class="route1">
+      <view>出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}</view>
+      <view>目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}</view>
+      <view>价格：单人{{item.oneUserPrice}}元,5坐包车{{item.fiveSeatsPrice}}元,7坐包车{{item.sevenSeatsPrice}}元</view>
+    </view>
+    <view class="route2">
+      <view bindtap="callCar">叫车</view>
     </view>
   </view>
 </view>

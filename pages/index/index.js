@@ -9,14 +9,44 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
     // 是否是司机
-    driver: false
+    driver: app.globalData.driver
   },
   // 默认加载
   onLoad: function (e){
     // 加载当前定位
     this.selectComponent("#maps").getPosition()
-    // 判断是否是司机
-    this.setData({driver:app.globalData.driver})
+    this.login()
+  },
+  // 登录
+  login:function(){
+    var that = this;
+    // 登录
+    wx.login({
+      success: res => {
+        var appId = 'wx9616cb5f7cfbe837';
+        var secret = '2797b46b7d86f643b6235b2a53312663';
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        app.wxRequest(
+          "POST",
+          app.globalData.url+'/login/Init',
+          // {"code":res.code},
+          {"code":"2"},
+          function(e){
+            if("1" === e.data){
+              app.globalData.driver = true
+              app.globalData.userInfo = e.openId
+              that.setData({driver:app.globalData.driver})
+            }else{
+              app.globalData.driver = false
+              app.globalData.userInfo = null
+              that.setData({driver:false})
+            }
+          },
+          function(e){
+            console.log(e)
+          })
+        }
+      })
   },
   // 手动定位
   position:function(e){

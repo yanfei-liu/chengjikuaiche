@@ -1,17 +1,53 @@
 <!--pages/conponents/callCon/callCon.wxml-->
-<view>
+<view class="v">
+
   <view>
-    <label>乘客人数</label>
-    <input type="number" value="{{numPeo}}" bindinput="inputHandle" data-prop="numPeo"/>
+    <label>联系电话</label>
+    <input type="number" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
   </view>
 
   <view>
-    <label>是否有大件行李</label>
-    <radio-group value="{{large}}" bindchange="inputHandle" data-prop="large">
-      <radio value="0" checked="{{large == 0}}">否</radio>
-      <radio value="1" checked="{{large == 1}}">是</radio>
+    <label>乘客人数</label>
+    <input type="presionNumber" value="{{presionNumber}}" bindinput="inputHandle" data-prop="presionNumber"/>
+  </view>
+
+  <view>
+    <!-- <input type="time" value="{{departureTime}}" bindinput="inputHandle" data-prop="departureTime"/> -->
+    <picker mode="date" value="{{departureTime}}"
+      start="2017-10-01" end="2017-10-08"
+      bindchange="inputHandle" data-prop="departureTime">
+      <view class="tui-picker-detail">
+        出发日期: {{departureTime}}
+      </view>
+    </picker>
+    <picker mode="time" value="{{departureTime2}}"
+      start="00:00" end="23:00"
+      bindchange="inputHandle" data-prop="departureTime2">
+      <view class="tui-picker-detail">
+        出发时间: {{departureTime2}}
+      </view>
+    </picker>
+  </view>
+
+  <view>
+    <label>是否包车</label>
+    <radio-group value="{{isCharterCar}}" bindchange="inputHandle" data-prop="isCharterCar">
+      <radio value="0" checked="{{isCharterCar == 0}}">否</radio>
+      <radio value="1" checked="{{isCharterCar == 1}}">是</radio>
     </radio-group>
   </view>
+
+  <view wx:if="{{isCharterCar == 1}}">
+    <label>包车车型</label>
+    <radio-group value="{{charterCarType}}" bindchange="inputHandle" data-prop="charterCarType">
+      <radio value="1" checked="{{charterCarType == 1}}">5坐</radio>
+      <radio value="2" checked="{{charterCarType == 2}}">7坐</radio>
+    </radio-group>
+  </view>
+
+
+
+
 
   <view class="btn" bindtap="sub">确定下单</view>
 </view>
