@@ -1,0 +1,19 @@
+/* pages/conponents/settlement/settlement.wxss */
+/* pages/call/call.wxss */
+.route{
+  width: 100%;
+  background-color:cadetblue;
+  color: white;
+  margin-bottom: 3px;
+  height: 190rpx;
+}
+.route1{
+  width: 100%;
+}
+.route2 view{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color:teal;
+}

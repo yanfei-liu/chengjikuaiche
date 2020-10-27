@@ -53,11 +53,12 @@ Component({
         {
           "phone":that.data.phone,
           "presionNumber":that.data.presionNumber,
-          // "departureTime":that.data.departureTime +" "+ that.data.departureTime2,
+          "departureTime":that.data.departureTime +" "+ that.data.departureTime2,
           "isCharterCar":that.data.isCharterCar,
           "charterCarType":that.data.charterCarType
         },
         function(e){
+          // 请求成功
           // 跳转至首页
           // wx.navigateTo({
           //   url: "/pages/index/index",

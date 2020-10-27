@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "callCon":"/pages/conponents/callCon/callCon"
+    "callCon":"/pages/conponents/callCon/callCon",
+    "settlement":"/pages/conponents/settlement/settlement"
   }
 }

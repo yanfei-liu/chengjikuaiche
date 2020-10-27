@@ -1,5 +1,6 @@
 <!--pages/call/call.wxml-->
-<view wx:if="{{call}}">
+<!-- 路线页面 -->
+<view wx:if="{{call == 0}}">
   <view>请选择路线</view>
   <view wx:for="{{routes}}" wx:key="item" class="route">
     <view class="route1">
@@ -12,6 +13,11 @@
     </view>
   </view>
 </view>
-<view wx:if="{{!call}}">
+<!-- 下单页面 -->
+<view wx:if="{{call == 1}}">
   <callCon id="callCon"></callCon>
+</view>
+<!-- 未结算订单页面 -->
+<view wx:if="{{call == 2}}">
+  <settlement id="settlement"></settlement>
 </view>

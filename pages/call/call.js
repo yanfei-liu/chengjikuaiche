@@ -6,12 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    call:true,
+    // 路线与叫车页面切换
+    call:0,
     routes:[]
   },
   callCar: function(e){
     this.setData({
-      call:false
+      call:1
     })
     this.selectComponent("#callCon").setType(e.target.dataset['call'])
   },
@@ -20,7 +21,31 @@ Page({
    */
   onLoad: function (options) {
     const that = this;
-    // 加载路线数据
+    // 需完善判断是否有未完成的订单
+    // app.wxRequest(
+    //   "GET",
+    //   app.globalData.url+'/route/findAll',
+    //   null,
+    //   function(e){
+    //     that.setData({routes:e})
+        // 如果没有未完成的订单，加载路线数据
+        // that.loadingRoute()
+        // 如果有未完成的订单，则跳转结算
+        that.toSettlement()
+    //   },
+    //   function(e){
+    //     console.log(e)
+    //   }
+    // )
+    
+  },
+  // 跳转结算页面
+  toSettlement:function(){
+    this.setData({"call":2})
+  },
+   // 加载路线数据
+  loadingRoute:function(){
+    const that = this;
     app.wxRequest(
       "GET",
       app.globalData.url+'/route/findAll',
@@ -33,7 +58,6 @@ Page({
       }
     )
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
