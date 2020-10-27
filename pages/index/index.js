@@ -6,6 +6,8 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    // 当前用户id
+    user:null,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
     // 是否是司机
@@ -13,14 +15,13 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
-    this.load()
-    // this.selectComponent("#maps").getPositionAuto()
+    // this.load()
+    this.selectComponent("#maps").getPositionAuto()
   },
   // 点击重试
   load:function(e){
     // 登录
     this.login()
-    console.log(111111)
   },
   // 手动定位
   position:function(){
@@ -42,13 +43,13 @@ Page({
           function(e){
             if("1" === e.data){
               app.globalData.driver = true
-              app.globalData.userInfo = e.openId
+              app.globalData.user = e.openId
               that.setData({driver:app.globalData.driver})
               // 加载当前定位
               that.selectComponent("#maps").getPosition()
             }else{
               app.globalData.driver = false
-              app.globalData.userInfo = null
+              app.globalData.user = null
               that.setData({driver:false})
             }
           },
