@@ -1,4 +1,5 @@
 // pages/conponents/applyDriver/applyDriver.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -70,40 +71,44 @@ Component({
               const tempFilePaths = res.tempFilePaths
               var p = e.target.dataset['prop'];
               var changed = {};
-              changed[p] = tempFilePaths;
-              t.setData(changed);
-  
-              // wx.uploadFile({
-              //   url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
-              //   filePath: tempFilePaths,
-              //   name: 'file',
-              //   formData: {
-              //     'user': 'test'
-              //   },
-              //   success (res){
-              //     const data = res.data
-              //     //do something
-              //   }
-              // })
+              wx.uploadFile({
+                url: app.globalData.url+'/file/upload',
+                filePath: tempFilePaths[0],
+                name: "multipartFile",
+                // formData: {
+                //   'user': 'test'
+                // },
+                success (res){
+                  let d = JSON.parse(res.data);
+                  if(d.uploaded == 1){
+                    changed[p] = app.globalData.url+"/"+d.url;
+                    t.setData(changed);
+                  }
+                }
+              })
           }
       });
-  
     },
     sub(e){
-      console.log(this.data)
-      wx.request({
-        url: 'test.php',
-        data: {
-          x: '',
-          y: ''
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success (res) {
-          console.log(res.data)
-        }
-      })
+      // 申请为司机
+      // app.wxRequest(
+      //   "POST",
+      //   app.globalData.url+'/login/Init',
+      //   {"code":"2"},
+      //   function(e){
+      //     if("1" === e.data){
+      //       app.globalData.driver = true
+      //       app.globalData.userInfo = e.openId
+      //       that.setData({driver:app.globalData.driver})
+      //     }else{
+      //       app.globalData.driver = false
+      //       app.globalData.userInfo = null
+      //       that.setData({driver:false})
+      //     }
+      //   },
+      //   function(e){
+      //     console.log(e)
+      //   })
     }
   }
 })

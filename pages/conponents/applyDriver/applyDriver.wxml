@@ -74,10 +74,5 @@
       <button bindtap="chooseImg" data-prop="rear" style="width:100%">上传</button>
     </view>
 
-    <!-- <label>性别</label>
-    <radio-group>
-      <radio value="1">男</radio>
-      <radio value="2">女</radio>
-    </radio-group> -->
     <button bindtap="sub" style="margin-top:5px;width:100%">提交</button>
 </view>

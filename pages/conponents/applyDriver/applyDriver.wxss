@@ -4,7 +4,7 @@
   height:100%;
 }
 .v input,picker{
-  border: 1rpx solid cadetblue;
+  border-bottom: 1rpx solid cadetblue;
 }
 .v button{
   color: white;

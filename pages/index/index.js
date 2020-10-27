@@ -13,9 +13,18 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
-    // 加载当前定位
-    this.selectComponent("#maps").getPosition()
+    this.load()
+    // this.selectComponent("#maps").getPositionAuto()
+  },
+  // 点击重试
+  load:function(e){
+    // 登录
     this.login()
+    console.log(111111)
+  },
+  // 手动定位
+  position:function(){
+    this.selectComponent("#maps").getPositionAuto()
   },
   // 登录
   login:function(){
@@ -29,13 +38,14 @@ Page({
         app.wxRequest(
           "POST",
           app.globalData.url+'/login/Init',
-          // {"code":res.code},
-          {"code":"2"},
+          {"code":res.code},
           function(e){
             if("1" === e.data){
               app.globalData.driver = true
               app.globalData.userInfo = e.openId
               that.setData({driver:app.globalData.driver})
+              // 加载当前定位
+              that.selectComponent("#maps").getPosition()
             }else{
               app.globalData.driver = false
               app.globalData.userInfo = null
@@ -43,15 +53,10 @@ Page({
             }
           },
           function(e){
-            console.log(e)
+            that.setData({canIUse:false})
           })
         }
       })
-  },
-  // 手动定位
-  position:function(e){
-    // 加载当前定位
-    this.selectComponent("#maps").getPosition()
   },
   // 跳转至其它页面
   goToViews: function(e){

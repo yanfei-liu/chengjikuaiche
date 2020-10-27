@@ -21,21 +21,20 @@ Page({
    */
   onLoad: function (options) {
     const that = this;
-    // 需完善判断是否有未完成的订单
+    // 是否有未完成的订单
     // app.wxRequest(
     //   "GET",
-    //   app.globalData.url+'/route/findAll',
+    //   app.globalData.url+'/order/getByUserId',
     //   null,
     //   function(e){
-    //     that.setData({routes:e})
         // 如果没有未完成的订单，加载路线数据
         // that.loadingRoute()
         // 如果有未完成的订单，则跳转结算
-        that.toSettlement()
-    //   },
-    //   function(e){
-    //     console.log(e)
-    //   }
+        // that.toSettlement()
+      // },
+      // function(e){
+      //   console.log(e)
+      // }
     // )
     
   },

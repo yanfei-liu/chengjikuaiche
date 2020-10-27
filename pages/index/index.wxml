@@ -7,12 +7,11 @@
     <view bindtap="goToViews" data-id="1" wx:if="{{!driver}}">叫车</view>
     <view bindtap="goToViews" data-id="3" wx:if="{{driver}}">接单</view>
     <view bindtap="goToViews" data-id="2">我的</view>
+    <view bindtap="position">定位</view>
   </view>
 </view>
 
 <!-- 申请授权 -->
-<view class="v2" wx:if="{{!canIUse}}">
-  <view>该小程序需要您进行授权登录</view>
-  <button type="primary" open-type="getUserInfo">授权</button>
-  <!-- <button type="button" bindtap="grant">授权登录</button> -->
+<view class="v2" wx:if="{{!canIUse}}" bindtap="load">
+  <view>服务器请求失败,点击空白位置重试</view>
 </view>
