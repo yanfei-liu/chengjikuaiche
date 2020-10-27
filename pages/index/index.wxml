@@ -13,5 +13,5 @@
 
 <!-- 申请授权 -->
 <view class="v2" wx:if="{{!canIUse}}" bindtap="load">
-  <view>服务器请求失败,点击空白位置重试</view>
+  <view>服务器请求失败</view>
 </view>
