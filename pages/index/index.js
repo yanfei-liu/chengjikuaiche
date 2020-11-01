@@ -15,8 +15,7 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
-    // this.load()
-    this.selectComponent("#maps").getPositionAuto()
+    this.load()
   },
   // 点击重试
   load:function(e){
