@@ -1,16 +1,16 @@
 /* pages/conponents/callCon/callCon.wxss */
-input{
+.input2{
   border-bottom:1rpx solid cadetblue;
 }
 .btn{
-  height: 50rpx;
-  line-height: 50rpx;
-  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 50rpx;
   background-color: cadetblue;
   color: white;
   text-align: center;
   margin-top: 10rpx;
 }
-.v>view{
+.v>.input{
   margin-bottom: 50rpx;
 }

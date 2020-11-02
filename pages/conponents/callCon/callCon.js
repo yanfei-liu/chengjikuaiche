@@ -5,13 +5,18 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    // 路线ID
+    routeId:null,
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    // 是否有未结算订单
+    j:true,
+    // 提示消息
+    jtext:'',
     type:0,
     // 乘坐人数
     presionNumber:1,
@@ -19,8 +24,6 @@ Component({
     phone:null,
     // 上车坐标
     startCoordinate:0,
-    // 路线ID
-    routeId:null,
     // 出发日期
     departureTime:'',
     // 出发时间
@@ -51,6 +54,8 @@ Component({
         "POST",
         app.globalData.url+'/order/save',
         {
+          "createPresion":app.globalData.userId,
+          "routeId":that.properties.routeId,
           "phone":that.data.phone,
           "presionNumber":that.data.presionNumber,
           "departureTime":that.data.departureTime +" "+ that.data.departureTime2,
@@ -58,11 +63,19 @@ Component({
           "charterCarType":that.data.charterCarType
         },
         function(e){
-          // 请求成功
-          // 跳转至首页
-          // wx.navigateTo({
-          //   url: "/pages/index/index",
-          // })
+          console.log(e)
+          // if(e.code === '0'){
+            // 请求成功
+            that.setData({j:false})
+            that.setData({jtext:e.msg})
+            // // 跳转至首页
+            // wx.navigateTo({
+            //   url: "/pages/index/index",
+            // })
+          // }else{
+          //   that.setData({j:false})
+          //   that.setData({jtext:e.msg})
+          // }
         },
         function(e){
           console.log(e)

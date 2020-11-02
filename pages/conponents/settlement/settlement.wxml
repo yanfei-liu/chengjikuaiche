@@ -6,6 +6,6 @@
       <view>{{route.oneUserPrice}}元</view>
     </view>
     <view class="route2">
-      <view bindtap="callCar">结算</view>
+      <view bindtap="callCar" class="callCar">结算</view>
     </view>
   </view>

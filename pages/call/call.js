@@ -14,7 +14,10 @@ Page({
     this.setData({
       call:1
     })
-    this.selectComponent("#callCon").setType(e.target.dataset['call'])
+    // this.selectComponent("#callCon").setType(e.target.dataset['call'])
+    this.selectComponent("#callCon").setData({
+      routeId:e.target.dataset['call']
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,21 +25,23 @@ Page({
   onLoad: function (options) {
     const that = this;
     // 是否有未完成的订单
-    // app.wxRequest(
-    //   "GET",
-    //   app.globalData.url+'/order/getByUserId',
-    //   null,
-    //   function(e){
-        // 如果没有未完成的订单，加载路线数据
-        // that.loadingRoute()
-        // 如果有未完成的订单，则跳转结算
-        // that.toSettlement()
-      // },
-      // function(e){
-      //   console.log(e)
-      // }
-    // )
-    
+    app.wxRequest(
+      "GET",
+      app.globalData.url+'/order/getByUserId?uuid='+app.globalData.userId,
+      null,
+      function(e){
+        if(e.code === '0'){
+          // 如果没有未完成的订单，加载路线数据
+          that.loadingRoute()
+        }else{
+          // 如果有未完成的订单，则跳转结算
+          that.toSettlement()
+        }
+      },
+      function(e){
+        console.log(e)
+      }
+    )
   },
   // 跳转结算页面
   toSettlement:function(){

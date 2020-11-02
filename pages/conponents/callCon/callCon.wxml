@@ -1,17 +1,17 @@
 <!--pages/conponents/callCon/callCon.wxml-->
-<view class="v">
+<view class="v" wx:if="{{j}}">
 
-  <view>
+  <view class="input">
     <label>联系电话</label>
-    <input type="number" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
+    <input class="input2" type="number" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
   </view>
 
-  <view>
+  <view class="input">
     <label>乘客人数</label>
-    <input type="presionNumber" value="{{presionNumber}}" bindinput="inputHandle" data-prop="presionNumber"/>
+    <input class="input2" type="presionNumber" value="{{presionNumber}}" bindinput="inputHandle" data-prop="presionNumber"/>
   </view>
 
-  <view>
+  <view class="input">
     <!-- <input type="time" value="{{departureTime}}" bindinput="inputHandle" data-prop="departureTime"/> -->
     <picker mode="date" value="{{departureTime}}"
       start="2017-10-01" end="2017-10-08"
@@ -29,7 +29,7 @@
     </picker>
   </view>
 
-  <view>
+  <view class="input">
     <label>是否包车</label>
     <radio-group value="{{isCharterCar}}" bindchange="inputHandle" data-prop="isCharterCar">
       <radio value="0" checked="{{isCharterCar == 0}}">否</radio>
@@ -45,9 +45,8 @@
     </radio-group>
   </view>
 
-
-
-
-
   <view class="btn" bindtap="sub">确定下单</view>
+</view>
+<view wx:if="{{!j}}">
+  {{jtext}}
 </view>

@@ -4,12 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    // 当前用户id
-    user:null,
-    hasUserInfo: false,
     // canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
+    // 是否登陆成功
     canIUse:false,
     // 是否是司机
     driver: app.globalData.driver,
@@ -43,23 +39,38 @@ Page({
           app.globalData.url+'/login/Init',
           {"code":res.code},
           function(e){
-            console.log(e)
-            if("1" === e.data){
-              // 是否是司机
-              app.globalData.driver = true
+            if("0" === e.code){
+              that.setData({canIUse:true})
+              let d = e.data;
+              // 截取是否是司机的标识
+              let d2 = d.substring(0,1);
+              // 1 客户  2 司机
+              app.globalData.driver = (d2 === '1' ? false : true)
               that.setData({driver:app.globalData.driver})
-              // 登陆人uuid
-              app.globalData.user = e.uuid
-              // 加载当前定位
-              that.selectComponent("#maps").getPosition()
+              // 保存token
+              app.globalData.token = d.substring(1);
+              // 用户id
+              app.globalData.userId = e.id
             }else{
               that.setData({msg:"登录错误："+e.message})
-              app.globalData.driver = false
-              that.setData({driver:false})
-              
-              app.globalData.user = null
               that.setData({canIUse:false})
             }
+            // if("0" === e.code){
+            //   // 是否是司机
+            //   app.globalData.driver = true
+            //   that.setData({driver:app.globalData.driver})
+            //   // 登陆人uuid
+            //   app.globalData.user = e.uuid
+            //   // 加载当前定位
+            //   that.selectComponent("#maps").getPosition()
+            // }else{
+            //   that.setData({msg:"登录错误："+e.message})
+            //   app.globalData.driver = false
+            //   that.setData({driver:false})
+              
+            //   app.globalData.user = null
+            //   that.setData({canIUse:false})
+            // }
           },
           function(e){
             that.setData({canIUse:false})

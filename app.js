@@ -16,7 +16,8 @@ App({
       header: {
         'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
         // 'content-type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'token':this.globalData.token
       },
       dataType: 'json',
       success: res => {
@@ -34,7 +35,8 @@ App({
       data: data,
       header: {
         'content-type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'token':this.globalData.token
       },
       dataType: 'json',
       success: res => {
@@ -113,8 +115,10 @@ App({
     // })
   },
   globalData: {
-    // openId
-    userInfo: null,
+    // 用户id
+    userId:null,
+    // tokn
+    token:null,
     // 是否是司机
     driver:false,
     // 全局请求地址
