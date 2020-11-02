@@ -23,7 +23,7 @@ Page({
   },
   // 手动定位
   position:function(){
-    this.selectComponent("#maps").getPositionAuto()
+    this.selectComponent("#maps").getPosition();
   },
   // 登录
   login:function(){
@@ -51,28 +51,15 @@ Page({
               app.globalData.token = d.substring(1);
               // 用户id
               app.globalData.userId = e.id
+              // 加载当前定位
+              that.position()
             }else{
               that.setData({msg:"登录错误："+e.message})
               that.setData({canIUse:false})
             }
-            // if("0" === e.code){
-            //   // 是否是司机
-            //   app.globalData.driver = true
-            //   that.setData({driver:app.globalData.driver})
-            //   // 登陆人uuid
-            //   app.globalData.user = e.uuid
-            //   // 加载当前定位
-            //   that.selectComponent("#maps").getPosition()
-            // }else{
-            //   that.setData({msg:"登录错误："+e.message})
-            //   app.globalData.driver = false
-            //   that.setData({driver:false})
-              
-            //   app.globalData.user = null
-            //   that.setData({canIUse:false})
-            // }
           },
           function(e){
+            that.setData({msg:"服务器连接失败"})
             that.setData({canIUse:false})
           })
         }

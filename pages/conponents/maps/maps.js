@@ -27,10 +27,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    getPositionAuto(){
-      // 获取定位
-      this.getPosition()
-    },
     getPosition(){
       var t = this;
       // 获取所有的授权信息
@@ -46,7 +42,6 @@ Component({
               // 高精度定位超时时间,3000ms以上才有效果
               // highAccuracyExpireTime:5000,
               success: (r) => {
-                console.log('startLocationUpdate-res', r)
                 const latitude = r.latitude
                 const longitude = r.longitude
                 t.setData({
