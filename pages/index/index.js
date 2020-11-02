@@ -35,14 +35,15 @@ Page({
     // 登录
     wx.login({
       success: res => {
-        var appId = 'wx9616cb5f7cfbe837';
-        var secret = '2797b46b7d86f643b6235b2a53312663';
+        // var appId = 'wx9616cb5f7cfbe837';
+        // var secret = '2797b46b7d86f643b6235b2a53312663';
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         app.wxRequest(
           "POST",
           app.globalData.url+'/login/Init',
           {"code":res.code},
           function(e){
+            console.log(e)
             if("1" === e.data){
               // 是否是司机
               app.globalData.driver = true
