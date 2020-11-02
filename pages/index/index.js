@@ -9,9 +9,12 @@ Page({
     // 当前用户id
     user:null,
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
+    // canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
+    canIUse:false,
     // 是否是司机
-    driver: app.globalData.driver
+    driver: app.globalData.driver,
+    // 请求失败提示
+    msg:''
   },
   // 默认加载
   onLoad: function (e){
@@ -41,15 +44,20 @@ Page({
           {"code":res.code},
           function(e){
             if("1" === e.data){
+              // 是否是司机
               app.globalData.driver = true
-              app.globalData.user = e.openId
               that.setData({driver:app.globalData.driver})
+              // 登陆人uuid
+              app.globalData.user = e.uuid
               // 加载当前定位
               that.selectComponent("#maps").getPosition()
             }else{
+              that.setData({msg:"登录错误："+e.message})
               app.globalData.driver = false
-              app.globalData.user = null
               that.setData({driver:false})
+              
+              app.globalData.user = null
+              that.setData({canIUse:false})
             }
           },
           function(e){
