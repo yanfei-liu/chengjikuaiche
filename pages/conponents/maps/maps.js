@@ -68,7 +68,6 @@ Component({
               }
             })
           }else{
-            console.log('请在设置页面授予位置权限');
             wx.authorize({
               scope: 'scope.userLocation',
               success:function(res){
