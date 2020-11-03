@@ -45,10 +45,12 @@ Page({
       t.setData({application:true})
     }else if(i == 12){
       t.setData({unsettled:true})
-      this.selectComponent("#unsettled").onGetOrder()
+      t.selectComponent("#unsettled").getData()
     }else if(i == 13){
-      // t.setData({customer:true})
       t.setData({history:true})
+      t.selectComponent("#history").getData()
+    }else if(i == 14){
+      t.setData({customer:true})
     }else{
       t.setData({men:true})
     }

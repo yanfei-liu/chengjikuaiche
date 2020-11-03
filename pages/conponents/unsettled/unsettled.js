@@ -26,7 +26,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onGetOrder:function(){
+    getData:function(){
       let that = this;
       app.wxRequest(
         "GET",

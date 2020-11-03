@@ -1,4 +1,5 @@
 // pages/conponents/history/history.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -19,11 +20,11 @@ Component({
    */
   methods: {
     // 查询历史订单
-    init:function(){
+    getData:function(){
       let that = this;
       app.wxRequest(
         "GET",
-        app.globalData.url+'/order/findAll?uuid='+app.globalData.userId,
+        app.globalData.url+'/order/findAll?userId='+app.globalData.userId,
         null,
         function(e){
           if(!e.success){
