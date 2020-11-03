@@ -10,11 +10,11 @@ Page({
     // 是否是司机
     driver: app.globalData.driver,
     // 请求失败提示
-    msg:''
+    msg:'服务器请求失败'
   },
   // 默认加载
   onLoad: function (e){
-    // this.load()
+    this.load()
   },
   // 选择位置信息
   chooseLocation:function(e){

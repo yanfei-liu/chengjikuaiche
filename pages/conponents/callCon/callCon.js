@@ -31,7 +31,15 @@ Component({
     // 是否包车
     isCharterCar:0,
     // 包车车型
-    charterCarType:0
+    charterCarType:0,
+    // 上车地点
+    upCarLatitude:'',
+    upCarLongitude:'',
+    upCarTxt:'',
+    // 下车地点
+    dowCarLatitude:'',
+    dowCarLongitude:'',
+    dowCarTxt:''
   },
 
   /**
@@ -47,6 +55,30 @@ Component({
     setType(e){
       this.data.type = e
     },
+    // 选择上车地点
+    chooseLocationUp:function(e){
+      let that = this
+      wx.chooseLocation({
+        success:function(res){
+          console.log(res)
+          that.setData({upCarLatitude:res.latitude})
+          that.setData({upCarLongitude:res.longitude})
+          that.setData({upCarTxt:res.address})
+        }
+      })
+    },
+    // 选择下车地点
+    chooseLocationDow:function(e){
+      let that = this
+      wx.chooseLocation({
+        success:function(res){
+          console.log(res)
+          that.setData({dowCarLatitude:res.latitude})
+          that.setData({dowCarLongitude:res.longitude})
+          that.setData({dowCarTxt:res.address})
+        }
+      })
+    },
     // 下单
     sub:function(e){
       const that = this;
@@ -58,7 +90,7 @@ Component({
           "routeId":that.properties.routeId,
           "phone":that.data.phone,
           "presionNumber":that.data.presionNumber,
-          "departureTime":that.data.departureTime +" "+ that.data.departureTime2,
+          "departureTime":that.data.departureTime +" "+ that.data.departureTime2+':00',
           "isCharterCar":that.data.isCharterCar,
           "charterCarType":that.data.charterCarType
         },

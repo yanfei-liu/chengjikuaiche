@@ -21,7 +21,7 @@
       </view>
     </picker>
     <picker mode="time" value="{{departureTime2}}"
-      start="00:00" end="23:00"
+      start="00:00:00" end="23:00:00"
       bindchange="inputHandle" data-prop="departureTime2">
       <view class="tui-picker-detail">
         出发时间: {{departureTime2}}
@@ -44,6 +44,9 @@
       <radio value="2" checked="{{charterCarType == 2}}">7坐</radio>
     </radio-group>
   </view>
+
+  <view bindtap="chooseLocationUp">点击选择上车地点{{upCarTxt}}</view>
+  <view bindtap="chooseLocationDow">点击选择上车地点{{dowCarTxt}}</view>
 
   <view class="btn" bindtap="sub">确定下单</view>
 </view>
