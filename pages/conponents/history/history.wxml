@@ -5,7 +5,7 @@
       <view class="th">创建时间</view>
       <view class="th">线路</view>
     </view>
-    <view class="tr" wx:for="{{arr}}" wx:key="item">
+    <view class="tr" wx:for="{{orders}}" wx:key="item">
       <view class="td">{{item.createDate}}</view>
       <view class="td">{{item.route}}</view>
     </view>

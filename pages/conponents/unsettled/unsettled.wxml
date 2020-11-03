@@ -10,7 +10,9 @@
     </view>
     <view class="route2">
       <view wx:if="{{item.orderType === '3'}}" class="callCar" bindtap="subOrder" data-call="{{item.orderSn}}">结算</view>
-      <view wx:if="{{item.orderType != '3'}}" class="callCar" >司机未确认完成，不能结算</view>
+      <view wx:if="{{item.orderType != '3'}}" bindtap="onGetOrder" class="callCar" >司机未确认完成，不能结算</view>
     </view>
   </view>
   <view wx:if="{{!success}}">没有未结算的订单</view>
+  <view wx:if="{{success2}}">结算完成</view>
+  <view wx:if="{{success3}}">结算失败，稍后重试</view>

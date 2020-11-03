@@ -17,7 +17,9 @@ Component({
     // 是否显示未结算订单
     success:true,
     // 是否显示结算按钮
-    orderType:0
+    orderType:0,
+    // 是否计算成功
+    success2:false
   },
 
   /**
@@ -44,7 +46,25 @@ Component({
     },
     // 结算订单
     subOrder:function(e){
-      console.log(e.target.dataset['call'])
+      let that = this;
+      app.wxRequest(
+        "GET",
+        app.globalData.url+'/order/orderSetting?orderSn='+e.target.dataset['call'],
+        null,
+        function(e){
+          if(e.success){
+            that.setData({success:false})
+            that.setData({success2:true})
+          }else{
+            that.setData({success:false})
+            that.setData({success2:false})
+            that.setData({success3:true})
+          }
+        },
+        function(err){
+          console.log(err)
+        }
+      )
     }
   }
 })
