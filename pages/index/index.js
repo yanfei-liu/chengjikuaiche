@@ -14,7 +14,18 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
-    this.load()
+    // this.load()
+  },
+  // 选择位置信息
+  chooseLocation:function(e){
+    wx.chooseLocation({
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(err){
+        console.log(err)
+      }
+    })
   },
   // 点击重试
   load:function(e){
