@@ -21,6 +21,7 @@ App({
       },
       dataType: 'json',
       success: res => {
+        console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
         }else if(res.statusCode == 404){
@@ -44,6 +45,7 @@ App({
       },
       dataType: 'json',
       success: res => {
+        console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
         }else if(res.statusCode == 404){

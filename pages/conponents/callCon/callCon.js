@@ -94,10 +94,10 @@ Component({
           // 上下车坐标地址
           // 上车地点
           "startCoordinate":that.data.upCarLatitude+';'+that.data.upCarLongitude,
-          "upCarTxt":that.data.upCarTxt,
+          "startAddress":that.data.upCarTxt,
           // 下车地点
           "endCoordinate":that.data.dowCarLatitude+';'+that.data.dowCarLongitude,
-          "dowCarTxt":that.data.dowCarTxt
+          "endAddress":that.data.dowCarTxt
         },
         function(e){
           console.log(e)

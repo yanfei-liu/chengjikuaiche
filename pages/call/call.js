@@ -30,6 +30,7 @@ Page({
       app.globalData.url+'/order/getByUserId?uuid='+app.globalData.userId,
       null,
       function(e){
+        console.log(e)
         if(e.code === '0'){
           // 如果没有未完成的订单，加载路线数据
           that.loadingRoute()
@@ -38,8 +39,8 @@ Page({
           that.toSettlement()
         }
       },
-      function(e){
-        console.log(e)
+      function(err){
+        console.log(err)
       }
     )
   },
