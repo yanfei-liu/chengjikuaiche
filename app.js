@@ -21,7 +21,11 @@ App({
       },
       dataType: 'json',
       success: res => {
-        callback(res.data);
+        if(res.statusCode == 200){
+          callback(res.data);
+        }else if(res.statusCode == 404){
+          console.log(res)
+        }
       },
       fail: err =>{
         errFun(err);
@@ -40,7 +44,11 @@ App({
       },
       dataType: 'json',
       success: res => {
-        callback(res.data);
+        if(res.statusCode == 200){
+          callback(res.data);
+        }else if(res.statusCode == 404){
+          console.log(res)
+        }
       },
       fail: err =>{
         errFun(err);
