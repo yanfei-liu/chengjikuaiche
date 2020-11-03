@@ -92,7 +92,14 @@ Component({
           "presionNumber":that.data.presionNumber,
           "departureTime":that.data.departureTime +" "+ that.data.departureTime2+':00',
           "isCharterCar":that.data.isCharterCar,
-          "charterCarType":that.data.charterCarType
+          "charterCarType":that.data.charterCarType,
+          // 上下车坐标地址
+          // 上车地点
+          "startCoordinate":that.data.upCarLatitude+';'+that.data.upCarLongitude,
+          "upCarTxt":that.data.upCarTxt,
+          // 下车地点
+          "endCoordinate":that.data.dowCarLatitude+';'+that.data.dowCarLongitude,
+          "dowCarTxt":that.data.dowCarTxt
         },
         function(e){
           console.log(e)

@@ -45,8 +45,8 @@
     </radio-group>
   </view>
 
-  <view bindtap="chooseLocationUp">点击选择上车地点{{upCarTxt}}</view>
-  <view bindtap="chooseLocationDow">点击选择上车地点{{dowCarTxt}}</view>
+  <view bindtap="chooseLocationUp">点击选择上车地点:{{upCarTxt}}</view>
+  <view bindtap="chooseLocationDow">点击选择上车地点:{{dowCarTxt}}</view>
 
   <view class="btn" bindtap="sub">确定下单</view>
 </view>
