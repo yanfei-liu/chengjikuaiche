@@ -60,7 +60,6 @@ Component({
       let that = this
       wx.chooseLocation({
         success:function(res){
-          console.log(res)
           that.setData({upCarLatitude:res.latitude})
           that.setData({upCarLongitude:res.longitude})
           that.setData({upCarTxt:res.address})
@@ -72,7 +71,6 @@ Component({
       let that = this
       wx.chooseLocation({
         success:function(res){
-          console.log(res)
           that.setData({dowCarLatitude:res.latitude})
           that.setData({dowCarLongitude:res.longitude})
           that.setData({dowCarTxt:res.address})
