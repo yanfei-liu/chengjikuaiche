@@ -2,45 +2,45 @@
 <view class="v">
 
     <label>姓名</label>
-    <input type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
+    <input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
 
     <label>身份证号</label>
-    <input type="text" value="{{nameId}}" bindinput="inputHandle" data-prop="nameId"/>
+    <input class="input" type="text" value="{{nameId}}" bindinput="inputHandle" data-prop="nameId"/>
 
     <label>联系电话</label>
-    <input type="text" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
+    <input class="input" type="text" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
 
     <label>身份证正面</label>
     <view>
-      <image type="text" src="{{nameIdA}}"/>
-      <button bindtap="chooseImg" data-prop="nameIdA" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{nameIdA}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="nameIdA" style="width:100%">上传</button>
     </view>
 
     <label>身份证背面</label>
     <view>
-      <image type="text" src="{{nameIdB}}"/>
-      <button bindtap="chooseImg" data-prop="nameIdB" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{nameIdB}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="nameIdB" style="width:100%">上传</button>
     </view>
 
     <label>驾驶证正面</label>
     <view>
-      <image type="text" src="{{driversA}}"/>
-      <button bindtap="chooseImg" data-prop="driversA" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{driversA}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="driversA" style="width:100%">上传</button>
     </view>
 
     <label>驾驶证背面</label>
     <view>
-      <image type="text" src="{{driversB}}"/>
-      <button bindtap="chooseImg" data-prop="driversB" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{driversB}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="driversB" style="width:100%">上传</button>
     </view>
 
     <label>车辆型号</label>
-    <input type="text" value="{{vehicleModel}}" bindinput="inputHandle" data-prop="vehicleModel"/>
+    <input class="input" type="text" value="{{vehicleModel}}" bindinput="inputHandle" data-prop="vehicleModel"/>
 
     <label>车辆颜色</label>
-    <input type="text" value="{{vehicleColor}}" bindinput="inputHandle" data-prop="vehicleColor"/>
+    <input class="input" type="text" value="{{vehicleColor}}" bindinput="inputHandle" data-prop="vehicleColor"/>
 
-    <picker mode="date" 
+    <picker mode="date"  class="picker"
       value="{{vehicleDate}}" 
       start="2017-10-01" end="9999-12-31" 
       bindchange="inputHandle"
@@ -52,27 +52,27 @@
 
     <label>行驶证正本</label>
     <view>
-      <image type="text" src="{{drivingA}}"/>
-      <button bindtap="chooseImg" data-prop="drivingA" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{drivingA}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="drivingA" style="width:100%">上传</button>
     </view>
 
     <label>行驶证副本</label>
     <view>
-      <image type="text" src="{{drivingB}}"/>
-      <button bindtap="chooseImg" data-prop="drivingB" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{drivingB}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="drivingB" style="width:100%">上传</button>
     </view>
 
     <label>车头照片</label>
     <view>
-      <image type="text" src="{{head}}"/>
-      <button bindtap="chooseImg" data-prop="head" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{head}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="head" style="width:100%">上传</button>
     </view>
 
     <label>车尾照片</label>
     <view>
-      <image type="text" src="{{rear}}"/>
-      <button bindtap="chooseImg" data-prop="rear" style="width:100%">上传</button>
+      <image class="img" type="text" src="{{rear}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="rear" style="width:100%">上传</button>
     </view>
 
-    <button bindtap="sub" style="margin-top:5px;width:100%">提交</button>
+    <button class="btn" bindtap="sub" style="margin-top:5px;width:100%">提交</button>
 </view>

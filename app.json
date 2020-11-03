@@ -6,6 +6,9 @@
     "pages/call/call",
     "pages/my/my"
   ],
+  "networkTimeout": {
+    "request": 20000
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于在小程序中显示您的位置"

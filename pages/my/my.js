@@ -12,6 +12,8 @@ Page({
     men:true,
     // 是否显示申请为司机-注意此值要与deriver相反
     application: false,
+    // 是否显示未结算订单
+    unsettled:false,
     // 是否显示历史订单页面
     history:false,
     // 是否显示客服页面
@@ -35,15 +37,18 @@ Page({
       application:false,
       men:false,
       history:false,
-      customer:false
+      customer:false,
+      unsettled:false
     }
     t.setData(arr)
-    if(i == 1){
+    if(i == 11){
       t.setData({application:true})
-    }else if(i == 2){
+    }else if(i == 12){
+      t.setData({unsettled:true})
+      this.selectComponent("#unsettled").onGetOrder()
+    }else if(i == 13){
+      // t.setData({customer:true})
       t.setData({history:true})
-    }else if(i == 3){
-      t.setData({customer:true})
     }else{
       t.setData({men:true})
     }

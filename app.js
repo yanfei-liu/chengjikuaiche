@@ -29,6 +29,7 @@ App({
         }
       },
       fail: err =>{
+        console.log(err)
         errFun(err);
       }
     })
@@ -53,6 +54,7 @@ App({
         }
       },
       fail: err =>{
+        console.log(err)
         errFun(err);
       }
     })

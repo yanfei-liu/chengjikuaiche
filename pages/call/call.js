@@ -8,6 +8,7 @@ Page({
   data: {
     // 路线与叫车页面切换
     call:0,
+    // 路线集合
     routes:[]
   },
   callCar: function(e){
@@ -30,7 +31,6 @@ Page({
       app.globalData.url+'/order/getByUserId?uuid='+app.globalData.userId,
       null,
       function(e){
-        console.log(e)
         if(e.code === '0'){
           // 如果没有未完成的订单，加载路线数据
           that.loadingRoute()

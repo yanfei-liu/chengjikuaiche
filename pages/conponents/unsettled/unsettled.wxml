@@ -1,0 +1,16 @@
+<!--pages/conponents/unsettled/unsettled.wxml-->
+<view class="route" wx:if="{{success}}">
+    <view class="route1">
+      <view>订单编号：{{item.orderSn}}</view>
+      <view>出发地：{{item.startAddress}}</view>
+      <view>目的地：{{item.endAddress}}</view>
+      <view>是否包车：{{item.isCharterCar === '1' ? '是' : '否'}}</view>
+      <view>乘坐人数：{{item.presionNumber}}人</view>
+      <view>价格：{{item.orderAmount}}元</view>
+    </view>
+    <view class="route2">
+      <view wx:if="{{item.orderType === '3'}}" class="callCar" bindtap="subOrder" data-call="{{item.orderSn}}">结算</view>
+      <view wx:if="{{item.orderType != '3'}}" class="callCar" >司机未确认完成，不能结算</view>
+    </view>
+  </view>
+  <view wx:if="{{!success}}">没有未结算的订单</view>

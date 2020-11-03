@@ -3,6 +3,7 @@
     "applyDriver":"/pages/conponents/applyDriver/applyDriver",
     "history":"/pages/conponents/history/history",
     "customer":"/pages/conponents/customer/customer",
-    "withdrawal":"/pages/conponents/withdrawal/withdrawal"
+    "withdrawal":"/pages/conponents/withdrawal/withdrawal",
+    "unsettled":"/pages/conponents/unsettled/unsettled"
   }
 }
