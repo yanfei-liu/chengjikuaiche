@@ -12,8 +12,8 @@
   <view wx:if="{{driver}}">
     <view bindtap="goToViews" data-prop="21">提现</view>
     <view bindtap="goToViews" data-prop="22">未完成订单</view>
-    <view bindtap="goToViews" data-prop="23">历史订单</view>
-    <view bindtap="goToViews" data-prop="24">客服</view>
+    <view bindtap="goToViews" data-prop="13">历史订单</view>
+    <view bindtap="goToViews" data-prop="14">客服</view>
   </view>
 </view>
 <!-- 申请成为司机 -->

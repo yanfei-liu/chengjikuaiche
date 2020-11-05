@@ -14,7 +14,8 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
-    this.load()
+    // this.load()
+    this.setData({canIUse:true})
   },
   // 选择位置信息
   // chooseLocation:function(e){
