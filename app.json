@@ -1,10 +1,13 @@
 {
-  "requiredBackgroundModes": ["location"],
+  "requiredBackgroundModes": [
+    "location"
+  ],
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/call/call",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/receiving/receiving"
   ],
   "networkTimeout": {
     "request": 20000

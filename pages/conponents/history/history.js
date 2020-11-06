@@ -27,7 +27,7 @@ Component({
         app.globalData.url+'/order/findAll?userId='+app.globalData.userId,
         null,
         function(e){
-          if(!e.success){
+          if(e.success){
             that.setData({orders:e.data})
           }
         },

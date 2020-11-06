@@ -1,20 +1,34 @@
 <!--pages/my/my.wxml-->
 <!-- 菜单 -->
 <view class="v" wx:if="{{men}}">
+
+  <!-- 司机 -->
+  <view bindtap="goToViews" data-prop="21" wx:if="{{driver}}">提现</view>
+  <view bindtap="goToViews" data-prop="22" wx:if="{{driver}}">未完成接单</view>
+  <view bindtap="goToViews" data-prop="23" wx:if="{{driver}}">历史接单</view>
+
+  <view style="background-color:yellow;"></view>
+
+  <!-- 客户 -->
+  <view bindtap="goToViews" data-prop="11" wx:if="{{!driver}}">申请成为司机</view>
+  <view bindtap="goToViews" data-prop="12">未结算订单</view>
+  <view bindtap="goToViews" data-prop="13">历史订单</view>
+  <view bindtap="goToViews" data-prop="14">客服</view>
+
   <!-- 客户  非司机 -->
-  <view wx:if="{{!driver}}">
+  <!-- <view wx:if="{{!driver}}">
     <view bindtap="goToViews" data-prop="11">申请成为司机</view>
     <view bindtap="goToViews" data-prop="12">未结算订单</view>
     <view bindtap="goToViews" data-prop="13">历史订单</view>
     <view bindtap="goToViews" data-prop="14">客服</view>
-  </view>
+  </view> -->
   <!-- 司机 -->
-  <view wx:if="{{driver}}">
+  <!-- <view wx:if="{{driver}}">
     <view bindtap="goToViews" data-prop="21">提现</view>
     <view bindtap="goToViews" data-prop="22">未完成订单</view>
-    <view bindtap="goToViews" data-prop="13">历史订单</view>
+    <view bindtap="goToViews" data-prop="23">历史订单</view>
     <view bindtap="goToViews" data-prop="14">客服</view>
-  </view>
+  </view> -->
 </view>
 <!-- 申请成为司机 -->
 <applyDriver id="applyDriver" wx:if="{{application}}"></applyDriver>

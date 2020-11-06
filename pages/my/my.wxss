@@ -1,5 +1,5 @@
 /* pages/my/my.wxss */
-.v view view{
+.v view{
   background-color: cadetblue;
   padding: 10px;
   color: white;

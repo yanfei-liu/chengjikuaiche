@@ -1,0 +1,16 @@
+<!--pages/receiving/receiving.wxml-->
+<view wx:if="{{!m}}">
+  <view>请选择路线</view>
+  <view wx:for="{{routes}}" wx:key="item" class="route">
+    <view class="route1">
+      <view>出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}</view>
+      <view>目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}</view>
+    </view>
+    <view class="route2">
+      <view bindtap="getOrders" data-call="{{item.uuid}}">查询订单</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{m}}" style="width:100vw;height:100vh;">
+  <mapOrder style="width:100vw;height:100vh;" id="mapOrder"></mapOrder>
+</view>

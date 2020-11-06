@@ -1,2 +1,3 @@
 <!--pages/index/maps/maps.wxml-->
-<map id="m" class="m" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" setting="{{setting}}"></map>
+<map id="m" class="m" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" setting="{{setting}}">
+</map>

@@ -5,7 +5,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
   },
 
   /**
@@ -43,7 +42,9 @@ Component({
     // 车头45°照片
     head:'',
     // 车尾正部照片
-    rear:''
+    rear:'',
+    msg:'',
+    v:false
   },
 
   /**
@@ -55,6 +56,24 @@ Component({
       var changed = {};
       changed[p] = e.detail.value;
       this.setData(changed);
+    },
+    // 加载判断有无正在申请的记录
+    getData:function(e){
+      let t = this;
+      app.wxRequest(
+        "POST",
+        app.globalData.url+'/apply/findByPassengerId',
+        {"passengerId":app.globalData.userId},
+        function(e){
+          if(e.success){
+            t.setData({v:true})
+          }else{
+            t.setData({msg:"您当前有未审核的申请记录"})
+          }
+        },
+        function(e){
+          console.log(e)
+        })
     },
     // 上传图片
     chooseImg(e){
@@ -90,25 +109,38 @@ Component({
       });
     },
     sub(e){
+      let t = this
       // 申请为司机
-      // app.wxRequest(
-      //   "POST",
-      //   app.globalData.url+'/login/Init',
-      //   {"code":"2"},
-      //   function(e){
-      //     if("1" === e.data){
-      //       app.globalData.driver = true
-      //       app.globalData.userInfo = e.openId
-      //       that.setData({driver:app.globalData.driver})
-      //     }else{
-      //       app.globalData.driver = false
-      //       app.globalData.userInfo = null
-      //       that.setData({driver:false})
-      //     }
-      //   },
-      //   function(e){
-      //     console.log(e)
-      //   })
+      app.wxRequest2(
+        "POST",
+        app.globalData.url+'/apply/save',
+        {
+          "passengerId":app.globalData.userId,
+          "carFortyFivePhoto": t.data.head,
+          "driverLicenseCopy": t.data.driversB,
+          "driverLicenseOriginal": t.data.driversA,
+          "driverName": t.data.name,
+          "driverPhone": t.data.phone,
+          "drivingLicenseCopy": t.data.drivingB,
+          "drivingLicenseOriginal": t.data.drivingA,
+          "holdIdCarFacePhoto": t.data.holdNameIdA,
+          "idCarBackPhoto": t.data.nameIdB,
+          "idCarFacePhoto": t.data.nameIdA,
+          "idCardId": t.data.nameId,
+          "vehicleModel": t.data.vehicleModel,
+          "vehicleRearPhoto": t.data.rear
+        },
+        function(e){
+          if(e.success){
+            t.setData({v:false})
+            t.setData({msg:"提交成功，请等待后台审核"})
+          }else{
+            t.setData({msg:e.message})
+          }
+        },
+        function(e){
+          console.log(e)
+        })
     }
   }
 })

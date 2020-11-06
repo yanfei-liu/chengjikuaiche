@@ -39,7 +39,7 @@
 
 .bottom2{
   margin-left: calc(100vw - 20vw);
-  margin-top: calc(100vh - 20vh);
+  margin-top: calc(100vh - 30vh);
   color: white;
 }
 

@@ -1,5 +1,5 @@
 <!--pages/conponents/applyDriver/applyDriver.wxml-->
-<view class="v">
+<view class="v" wx:if="{{v}}">
 
     <label>姓名</label>
     <input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
@@ -22,6 +22,12 @@
       <button class="btn" bindtap="chooseImg" data-prop="nameIdB" style="width:100%">上传</button>
     </view>
 
+    <label>手持身份证正面</label>
+    <view>
+      <image class="img" type="text" src="{{holdNameIdA}}"/>
+      <button class="btn" bindtap="chooseImg" data-prop="holdNameIdA" style="width:100%">上传</button>
+    </view>
+
     <label>驾驶证正面</label>
     <view>
       <image class="img" type="text" src="{{driversA}}"/>
@@ -35,7 +41,12 @@
     </view>
 
     <label>车辆型号</label>
-    <input class="input" type="text" value="{{vehicleModel}}" bindinput="inputHandle" data-prop="vehicleModel"/>
+    <input class="input" 
+    type="text" 
+    value="{{vehicleModel}}" 
+    bindinput="inputHandle"
+    placeholder="宝骏530" 
+    data-prop="vehicleModel"/>
 
     <label>车辆颜色</label>
     <input class="input" type="text" value="{{vehicleColor}}" bindinput="inputHandle" data-prop="vehicleColor"/>
@@ -74,5 +85,7 @@
       <button class="btn" bindtap="chooseImg" data-prop="rear" style="width:100%">上传</button>
     </view>
 
+    <view>{{msg}}</view>
     <button class="btn" bindtap="sub" style="margin-top:5px;width:100%">提交</button>
 </view>
+<view wx:if="{{!v}}">{{msg}}</view>

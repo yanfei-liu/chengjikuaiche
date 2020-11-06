@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "maps":"/pages/conponents/mapOrder/mapOrder"
+  }
+}

@@ -1,25 +1,26 @@
 /* pages/conponents/history/history.wxss */
-.table{
-  width:100%;
-  height: 100%;
+
+/* .tr:nth-of-type(even){
+  background-color: cadetblue;
+  color: white;
+} */
+.con{
+  width: 100%;
+  padding: 10rpx;
+  background-color: cadetblue;
+  margin-bottom: 10rpx;
 }
 .tr{
   width: 100%;
-  height: 50rpx;
-  border-bottom: 1px solid cadetblue;
-}
-.tr:nth-of-type(even){
-  background-color: cadetblue;
+  padding: 5rpx;
   color: white;
 }
-.th,.td{
-  float: left;
-  width: 50%;
-  height: 50rpx;
-  line-height: 50rpx;
-  text-align: center;
+.complete{
+  background-color: green;
 }
-.th{
-  border-bottom: 2px solid cadetblue;
-  font-weight: 800;
+.finished{
+  background-color: #ff9900;
+}
+.cancel{
+  background-color: #cccccc;
 }

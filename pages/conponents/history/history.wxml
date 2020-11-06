@@ -1,13 +1,25 @@
 <!--pages/conponents/history/history.wxml-->
 <view>
-  <view class="table">
+  <view class="con" wx:for="{{orders}}" wx:key="item">
     <view class="tr">
-      <view class="th">创建时间</view>
-      <view class="th">线路</view>
+      <view class="a finished" wx:if="{{item.orderType === '0'}}">订单状态:未接单</view>
+      <view class="a finished" wx:if="{{item.orderType === '1'}}">订单状态:未开始</view>
+      <view class="a finished" wx:if="{{item.orderType === '2'}}">订单状态:已开始</view>
+      <view class="a finished" wx:if="{{item.orderType === '3'}}">订单状态:未结算</view>
+      <view class="a complete" wx:if="{{item.orderType === '4'}}">订单状态:已完成</view>
+      <view class="a cancel" wx:if="{{item.orderType === '5'}}">订单状态:已取消</view>
     </view>
-    <view class="tr" wx:for="{{orders}}" wx:key="item">
-      <view class="td">{{item.createDate}}</view>
-      <view class="td">{{item.route}}</view>
+    <view class="tr">
+      <view class="a">订单编号:</view>
+      <view class="a">{{item.orderSn}}</view>
+    </view>
+    <view class="tr">
+      <view class="a">上车地点:</view>
+      <view class="a">{{item.startAddress}}</view>
+    </view>
+    <view class="tr">
+      <view class="a">下车地点:</view>
+      <view class="a">{{item.endAddress}}</view>
     </view>
   </view>
 </view>

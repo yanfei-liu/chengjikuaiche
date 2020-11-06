@@ -43,6 +43,7 @@ Page({
     t.setData(arr)
     if(i == 11){
       t.setData({application:true})
+      t.selectComponent("#applyDriver").getData()
     }else if(i == 12){
       t.setData({unsettled:true})
       t.selectComponent("#unsettled").getData()
