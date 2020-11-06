@@ -14,11 +14,11 @@ bindcallouttap="getOrder"
 
 <view wx:if="{{orderView}}" class="orderView">
   <view class="orderView2">
-    <view class="orderView-item">出发地：</view>
-    <view class="orderView-item">目的地：</view>
-    <view class="orderView-item">出发时间：</view>
-    <view class="orderView-item">是否包车：</view>
-    <view class="orderView-item">乘坐人数：</view>
+    <view class="orderView-item">出发地：{{startAddress}}</view>
+    <view class="orderView-item">目的地：{{endAddress}}</view>
+    <view class="orderView-item">出发时间：{{departureTime}}</view>
+    <view class="orderView-item">是否包车：{{isCharterCar == '1' ? '是' : '否'}}</view>
+    <view class="orderView-item">乘坐人数：{{presionNumber}}</view>
     <view class="orderView-item">
       <view class="orderView-item2" bindtap="toClose">关闭</view>
       <view class="orderView-item3" bindtap="toAccept">接单</view>

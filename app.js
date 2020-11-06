@@ -123,7 +123,7 @@ App({
   },
   globalData: {
     // 是否模拟登陆成功，以便于测试时不连服务器也可以进入主页面
-    test:true,
+    test:false,
     // 用户id
     userId:null,
     // tokn

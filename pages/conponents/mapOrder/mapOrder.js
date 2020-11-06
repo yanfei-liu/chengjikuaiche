@@ -1,4 +1,5 @@
 // pages/conponents/mapOrder/mapOrder.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -21,62 +22,48 @@ Component({
       showCompass:true
     },
     // order view
-    orderView:false
+    orderView:false,
+    // 出发地
+    startAddress:'',
+    // 目的地
+    endAddress:'',
+    // 出发时间
+    departureTime:'',
+    // 是否包车
+    isCharterCar:'',
+    // 乘坐人数
+    presionNumber:'',
+    // 订单编号
+    orderSn:'',
+    // 用于刷新页面
+    eData:null
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    getPosition(){
-      var t = this;
-      // 获取所有的授权信息
-      wx.getSetting({
-        success(res) {
-          // 判断有没有scope.userLocation授权
-          if (res.authSetting['scope.userLocation']) {
-            // 获取用户位置信息
-            wx.getLocation({
-              type: 'gcj02',
-              success: (r) => {
-                const latitude = r.latitude
-                const longitude = r.longitude
-                t.setData({
-                  latitude:latitude,
-                  longitude:longitude
-                })
-              },
-              fail: (err) => {
-              }
-            })
-          }else{
-            wx.authorize({
-              scope: 'scope.userLocation',
-              success:function(res){
-                // 授权成功
-                t.getPosition();
-              },
-              fail:function(err){
-              },
-            })
-          }
-        }
-      })  
+    toInit(e){
+      this.setData({eData:e})
+      // 批量生成地图标记
+      this.getData(e)
     },
     // 批量生成标记
     getData(e){
       let t = this;
       let markers = [];
       for(let i = 0; i < e.length;i++){
+        // 分割出经纬度
+        let latLon = e[i].startCoordinate.split(";")
         markers = markers.concat({
           iconPath: "/pages/resources/img/user.png",
-          id: "路线"+i,
-          latitude: i*0.01,
-          longitude: i*0.01,
+          id: e[i].orderSn,
+          latitude: latLon[0],
+          longitude: latLon[1],
           width: 20,
           height: 20,
           callout: {
-            content:"测试",
+            content:e[i].startAddress+"\n"+e[i].endAddress,
             display:'BYCLICK',
             fontSize: '32',
             padding: true,
@@ -90,18 +77,29 @@ Component({
     },
     // 点击地图marker获取该订单信息
     getOrder(e){
-      // markerId
+      // e.markerId
       // 显示订单信息窗口
       this.setData({orderView:true})
-      // app.wxRequest(
-      //   "GET",
-      //   app.globalData.url+'/order/save',
-      //   null,
-      //   function(e){
-      //   },
-      //   function(e){
-      //   }
-      // )
+      let t = this
+      app.wxRequest(
+        "GET",
+        app.globalData.url+'/order/getOneByOrderSn?orderSn='+e.markerId,
+        null,
+        function(e){
+          if(e.success){
+            t.setData({startAddress:e.data.startAddress})
+            t.setData({endAddress:e.data.endAddress})
+            t.setData({departureTime:e.data.departureTime})
+            t.setData({isCharterCar:e.data.isCharterCar})
+            t.setData({presionNumber:e.data.presionNumber})
+            t.setData({orderSn:e.data.orderSn})
+          }else{
+
+          }
+        },
+        function(e){
+        }
+      )
     },
     // 关闭订单详情
     toClose(e){
@@ -109,7 +107,23 @@ Component({
     },
     // 接单
     toAccept(e){
+      let t = this
+      app.wxRequest(
+        "GET",
+        app.globalData.url+'/order/updateJieDan?orderSn='+t.data.orderSn+"&uuid="+app.globalData.userId,
+        null,
+        function(e){
+          console.log(e)
+          if(e.success){
+            console.log("接单成功")
+            t.toInit(t.data.eData)
+          }else{
 
+          }
+        },
+        function(e){
+        }
+      )
     }
   }
 })

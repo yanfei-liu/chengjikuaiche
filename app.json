@@ -7,7 +7,8 @@
     "pages/logs/logs",
     "pages/call/call",
     "pages/my/my",
-    "pages/receiving/receiving"
+    "pages/receiving/receiving",
+    "pages/maporder/maporder"
   ],
   "networkTimeout": {
     "request": 20000

@@ -10,8 +10,16 @@ Page({
     m:false,
     // 路线集合
     routes:[],
+    // 出发日期
+    goDate:'',
     success:false,
     msg:''
+  },
+  inputHandle:function(e){
+    var p = e.target.dataset['prop'];
+    var changed = {};
+    changed[p] = e.detail.value;
+    this.setData(changed);
   },
 
   /**
@@ -46,25 +54,17 @@ Page({
   },
   // 根据路线获取所有订单
   getOrders:function(e){
+    let uuid = e.target.dataset['call']
     let t = this
-    app.wxRequest(
-      "GET",
-      app.globalData.url+'/route/findAll',
-      null,
-      function(e){
-        if(e.success){
-          // 设置地图中心点为当前定位
-          t.selectComponent("#mapOrder").getPosition()
-          // 批量生成地图标记
-          t.selectComponent("#mapOrder").getData(e.data)
-        }else{
-          // 如果没有订单
-          t.setData({success:true})
-          t.setData({msg:"当前所选线路暂时没有订单"})
-        }
-      },
-      function(e){
-      }
-    )
+    let d = t.data.goDate
+    if(d != ''){
+      wx.navigateTo({
+        url: '/pages/maporder/maporder?routeId='+uuid+"&date="+d
+      })
+    }else{
+      // 如果没有订单
+      t.setData({success:true})
+      t.setData({msg:"请选择出发日期"})
+    }
   }
 })

@@ -1,6 +1,15 @@
 <!--pages/receiving/receiving.wxml-->
-<view wx:if="{{!m && !success}}">
+<view wx:if="{{!success}}">
   <view>请选择路线</view>
+  <picker mode="date"  class="picker"
+    value="{{goDate}}" 
+    start="2017-10-01" end="9999-12-31" 
+    bindchange="inputHandle"
+    data-prop="goDate">
+    <view class="tui-picker-detail">
+      出发日期: {{goDate}}
+    </view>
+  </picker>
   <view wx:for="{{routes}}" wx:key="item" class="route">
     <view class="route1">
       <view>出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}</view>
@@ -11,7 +20,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{m && !success}}" style="width:100vw;height:100vh;">
-  <mapOrder id="mapOrder"></mapOrder>
-</view>
+<!-- <view wx:if="{{m && !success}}" style="width:100vw;height:100vh;">
+  <mapOrder id="maporder"></mapOrder>
+</view> -->
 <view wx:if="{{success}}">{{msg}}</view>
