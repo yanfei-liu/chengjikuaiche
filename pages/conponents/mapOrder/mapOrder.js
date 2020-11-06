@@ -19,7 +19,9 @@ Component({
       enableTraffic:false,
       // 显示指南针
       showCompass:true
-    }
+    },
+    // order view
+    orderView:false
   },
 
   /**
@@ -89,15 +91,25 @@ Component({
     // 点击地图marker获取该订单信息
     getOrder(e){
       // markerId
-      app.wxRequest(
-        "GET",
-        app.globalData.url+'/order/save',
-        null,
-        function(e){
-        },
-        function(e){
-        }
-      )
+      // 显示订单信息窗口
+      this.setData({orderView:true})
+      // app.wxRequest(
+      //   "GET",
+      //   app.globalData.url+'/order/save',
+      //   null,
+      //   function(e){
+      //   },
+      //   function(e){
+      //   }
+      // )
+    },
+    // 关闭订单详情
+    toClose(e){
+      this.setData({orderView:false})
+    },
+    // 接单
+    toAccept(e){
+
     }
-  },
+  }
 })

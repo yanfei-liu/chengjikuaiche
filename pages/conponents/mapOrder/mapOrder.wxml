@@ -1,6 +1,6 @@
 <!--pages/conponents/mapOrder/mapOrder.wxml-->
 <map id="m" 
-style="width:100%;height:100%;" 
+class="m"
 latitude="{{latitude}}" 
 longitude="{{longitude}}" 
 markers="{{markers}}" 
@@ -11,3 +11,17 @@ show-location
 bindcallouttap="getOrder"
 >
 </map>
+
+<view wx:if="{{orderView}}" class="orderView">
+  <view class="orderView2">
+    <view class="orderView-item">出发地：</view>
+    <view class="orderView-item">目的地：</view>
+    <view class="orderView-item">出发时间：</view>
+    <view class="orderView-item">是否包车：</view>
+    <view class="orderView-item">乘坐人数：</view>
+    <view class="orderView-item">
+      <view class="orderView-item2" bindtap="toClose">关闭</view>
+      <view class="orderView-item3" bindtap="toAccept">接单</view>
+    </view>
+  </view>
+</view>

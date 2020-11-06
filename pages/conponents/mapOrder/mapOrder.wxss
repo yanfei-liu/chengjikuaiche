@@ -1,1 +1,36 @@
 /* pages/conponents/mapOrder/mapOrder.wxss */
+.m{
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index: 1;
+}
+.orderView{
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+  color: white;
+}
+.orderView2{
+  width: 100%;
+  background-color: cadetblue;
+  position:fixed;
+  bottom:0;
+}
+.orderView-item{
+  margin-top: 10rpx;
+  padding: 5rpx;  
+}
+.orderView-item2,.orderView-item3{
+  width: 40%;
+  float: left;
+  background-color: red;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+}
+.orderView-item3{
+  width: 60%;
+  background-color: green;
+}
