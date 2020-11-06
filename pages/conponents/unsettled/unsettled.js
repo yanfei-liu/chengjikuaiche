@@ -40,7 +40,6 @@ Component({
           }
         },
         function(err){
-          console.log(err)
         }
       )
     },
@@ -62,7 +61,6 @@ Component({
           }
         },
         function(err){
-          console.log(err)
         }
       )
     }

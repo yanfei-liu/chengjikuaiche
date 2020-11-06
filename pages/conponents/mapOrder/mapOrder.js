@@ -45,7 +45,6 @@ Component({
                 })
               },
               fail: (err) => {
-                console.log('startLocationUpdate-err', err)
               }
             })
           }else{
@@ -56,7 +55,6 @@ Component({
                 t.getPosition();
               },
               fail:function(err){
-                console.log('授权失败');
               },
             })
           }
@@ -66,20 +64,40 @@ Component({
     // 批量生成标记
     getData(e){
       let t = this;
-      let arr = [];
+      let markers = [];
       for(let i = 0; i < e.length;i++){
-        let a = {
+        markers = markers.concat({
           iconPath: "/pages/resources/img/user.png",
-          id: i,
-          latitude: t.data.latitude+(i*0.01),
-          longitude: t.data.longitude+(i*0.01),
-          width: 50,
-          height: 50
-        }
-        arr.push(a)
-        t.setData({markers:arr})
+          id: "路线"+i,
+          latitude: i*0.01,
+          longitude: i*0.01,
+          width: 20,
+          height: 20,
+          callout: {
+            content:"测试",
+            display:'BYCLICK',
+            fontSize: '32',
+            padding: true,
+            color:'#444',
+            textAlign: 'center',
+            borderRadius: 15
+          }
+        });
       }
-      console.log(t.data.markers)
+      t.setData({markers:markers})
+    },
+    // 点击地图marker获取该订单信息
+    getOrder(e){
+      // markerId
+      app.wxRequest(
+        "GET",
+        app.globalData.url+'/order/save',
+        null,
+        function(e){
+        },
+        function(e){
+        }
+      )
     }
-  }
+  },
 })

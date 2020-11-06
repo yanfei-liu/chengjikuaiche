@@ -32,7 +32,6 @@ Component({
           }
         },
         function(err){
-          console.log(err)
         }
       )
     }

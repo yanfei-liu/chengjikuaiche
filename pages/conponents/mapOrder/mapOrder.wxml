@@ -1,8 +1,13 @@
 <!--pages/conponents/mapOrder/mapOrder.wxml-->
-<map id="m2" 
+<map id="m" 
 style="width:100%;height:100%;" 
 latitude="{{latitude}}" 
 longitude="{{longitude}}" 
 markers="{{markers}}" 
-setting="{{setting}}">
+include-points="{{markers}}"
+data-id="{{markers}}"
+setting="{{setting}}"
+show-location
+bindcallouttap="getOrder"
+>
 </map>

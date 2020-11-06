@@ -40,7 +40,6 @@ Page({
         }
       },
       function(err){
-        console.log(err)
       }
     )
   },
@@ -59,7 +58,6 @@ Page({
         that.setData({routes:e})
       },
       function(e){
-        console.log(e)
       }
     )
   },

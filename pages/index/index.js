@@ -39,6 +39,8 @@ Page({
       this.setData({canIUse:true})
       this.setData({driver:true})
       this.setData({test:true})
+      // 定位
+      this.selectComponent("#maps").getPosition();
     }else{
       this.load()
     }

@@ -72,7 +72,6 @@ Component({
           }
         },
         function(e){
-          console.log(e)
         })
     },
     // 上传图片
@@ -139,7 +138,6 @@ Component({
           }
         },
         function(e){
-          console.log(e)
         })
     }
   }

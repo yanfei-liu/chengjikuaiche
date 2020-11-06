@@ -22,7 +22,7 @@ Page({
     if(app.globalData.test){
       this.setData({m:true})
       // 测试地图中心在当前位置
-      this.selectComponent("#mapOrder").getPosition()
+      // this.selectComponent("#mapOrder").getPosition()
       // 测试批量地图标记
       this.selectComponent("#mapOrder").getData([{'a':0},{'a':1},{'a':2},{'a':3},{'a':4}])
     }else{
@@ -41,7 +41,6 @@ Page({
         that.setData({routes:e})
       },
       function(e){
-        console.log(e)
       }
     )
   },
@@ -65,7 +64,6 @@ Page({
         }
       },
       function(e){
-        console.log(e)
       }
     )
   }

@@ -100,7 +100,6 @@ Component({
           "endAddress":that.data.dowCarTxt
         },
         function(e){
-          console.log(e)
           // if(e.code === '0'){
             // 请求成功
             that.setData({j:false})
@@ -115,7 +114,6 @@ Component({
           // }
         },
         function(e){
-          console.log(e)
         }
       )
     }

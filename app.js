@@ -15,7 +15,6 @@ App({
       data: data,
       header: {
         'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
-        // 'content-type': 'application/json',
         'Accept': 'application/json',
         'token':this.globalData.token
       },
@@ -24,8 +23,6 @@ App({
         console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
-        }else if(res.statusCode == 404){
-          console.log(res)
         }
       },
       fail: err =>{
@@ -49,8 +46,6 @@ App({
         console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
-        }else if(res.statusCode == 404){
-          console.log(res)
         }
       },
       fail: err =>{

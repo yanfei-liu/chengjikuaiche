@@ -46,18 +46,17 @@ Component({
                   latitude:latitude,
                   longitude:longitude,
                   // 标记当前位置
-                  markers:[{
-                    iconPath: "/pages/resources/img/user.png",
-                    id: 0,
-                    latitude: latitude,
-                    longitude: longitude,
-                    width: 50,
-                    height: 50
-                  }]
+                  // markers:[{
+                  //   iconPath: "/pages/resources/img/user.png",
+                  //   id: 0,
+                  //   latitude: latitude,
+                  //   longitude: longitude,
+                  //   width: 50,
+                  //   height: 50
+                  // }]
                 })
               },
               fail: (err) => {
-                console.log('startLocationUpdate-err', err)
               }
             })
           }else{
@@ -68,7 +67,6 @@ Component({
                 t.getPosition();
               },
               fail:function(err){
-                console.log('授权失败');
               },
             })
           }

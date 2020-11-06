@@ -36,7 +36,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.13.1",
+  "libVersion": "2.13.2",
   "appid": "wx9616cb5f7cfbe837",
   "projectname": "chengcunkuaiche",
   "debugOptions": {
