@@ -7,7 +7,6 @@
     <view bindtap="goToViews" data-id="3" wx:if="{{driver}}">接单</view>
     <view bindtap="goToViews" data-id="1">叫车</view>
     <view bindtap="goToViews" data-id="2">我的</view>
-    <!-- <view bindtap="position">定位</view> -->
     <view style="color:red;" wx:if="{{test}}">测试状态</view>
   </view>
 </view>
@@ -15,5 +14,4 @@
 <!-- 申请授权 -->
 <view class="v2" wx:if="{{!canIUse}}">
   <view>{{msg}}</view>
-  <!-- <view bindtap="chooseLocation">选择位置信息</view> -->
 </view>
