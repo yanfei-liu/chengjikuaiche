@@ -40,11 +40,7 @@ Page({
       this.setData({driver:true})
       this.setData({test:true})
     }else{
-<<<<<<< HEAD
       this.load()
-=======
-    // this.load()
->>>>>>> 1
     }
   },
   // 点击重试
