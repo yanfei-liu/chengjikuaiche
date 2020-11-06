@@ -1,4 +1,5 @@
 <!--pages/conponents/mapOrder/mapOrder.wxml-->
+<<<<<<< HEAD
 <map id="m2" 
 style="width:100%;height:100%;" 
 latitude="{{latitude}}" 
@@ -6,3 +7,7 @@ longitude="{{longitude}}"
 markers="{{markers}}" 
 setting="{{setting}}">
 </map>
+=======
+<map id="m" style="width:100%;height:100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" setting="{{setting}}">
+</map>
+>>>>>>> 1

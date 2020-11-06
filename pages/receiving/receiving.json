@@ -1,5 +1,9 @@
 {
   "usingComponents": {
+<<<<<<< HEAD
     "mapOrder":"/pages/conponents/mapOrder/mapOrder"
+=======
+    "maps":"/pages/conponents/mapOrder/mapOrder"
+>>>>>>> 1
   }
 }
