@@ -40,7 +40,7 @@ Page({
       this.setData({driver:true})
       this.setData({test:true})
     }else{
-    this.load()
+      this.load()
     }
   },
   // 点击重试
