@@ -18,9 +18,7 @@ Component({
       enableTraffic:false,
       // 显示指南针
       showCompass:true
-    },
-    // map对象
-    myMap:null
+    }
   },
 
   /**

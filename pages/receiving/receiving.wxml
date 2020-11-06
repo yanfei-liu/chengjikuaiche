@@ -1,5 +1,5 @@
 <!--pages/receiving/receiving.wxml-->
-<view wx:if="{{!m}}">
+<view wx:if="{{!m && !success}}">
   <view>请选择路线</view>
   <view wx:for="{{routes}}" wx:key="item" class="route">
     <view class="route1">
@@ -11,6 +11,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{m}}" style="width:100vw;height:100vh;">
-  <mapOrder style="width:100vw;height:100vh;" id="mapOrder"></mapOrder>
+<view wx:if="{{m && !success}}" style="width:100vw;height:100vh;">
+  <mapOrder id="mapOrder"></mapOrder>
 </view>
+<view wx:if="{{success}}">{{msg}}</view>
