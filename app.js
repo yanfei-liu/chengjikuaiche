@@ -9,6 +9,10 @@ App({
   * errFun： 请求失败回调函数
   **/
  wxRequest:function(method, url, data, callback, errFun) {
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.request({
       url: url,
       method: method,
@@ -20,18 +24,28 @@ App({
       },
       dataType: 'json',
       success: res => {
+        wx.hideLoading()
         console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
         }
       },
       fail: err =>{
-        console.log(err)
+        wx.hideLoading()
+        if(err.errMsg === "request:fail timeout"){
+          this.alter2("服务器连接超时",'none')
+        }else{
+          console.log(err)
+        }
         errFun(err);
       }
     })
   },
   wxRequest2:function(method, url, data, callback, errFun) {
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.request({
       url: url,
       method: method,
@@ -43,14 +57,43 @@ App({
       },
       dataType: 'json',
       success: res => {
+        wx.hideLoading()
         console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
         }
       },
       fail: err =>{
-        console.log(err)
+        wx.hideLoading()
+        if(err.errMsg === "request:fail timeout"){
+          this.alter2("服务器连接超时",'none')
+        }else{
+          console.log(err)
+        }
         errFun(err);
+      }
+    })
+  },
+  // 消息提示
+  alter2:function(title,icon){
+    wx.showToast({
+      title: title,
+      icon: icon,//'success','loading','none'
+      duration: 2000,//停留时间
+      mask:true//是否显示透明蒙层，防止触摸穿透
+    })
+  },
+  // 消息提示，带有处理函数,注意：fun回调需等待定时时间
+  alter3:function(title,icon,fun){
+    wx.showToast({
+      title: title,
+      icon: icon,//'success','loading','none'
+      duration: 2000,//停留时间
+      mask:true,//是否显示透明蒙层，防止触摸穿透
+      success:function(){
+        setTimeout(function () {
+          fun()
+        }, 2000)
       }
     })
   },
@@ -123,7 +166,7 @@ App({
   },
   globalData: {
     // 是否模拟登陆成功，以便于测试时不连服务器也可以进入主页面
-    test:false,
+    test:true,
     // 用户id
     userId:null,
     // tokn

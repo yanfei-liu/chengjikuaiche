@@ -1,29 +1,51 @@
 <!--pages/conponents/callCon/callCon.wxml-->
-<view class="v" wx:if="{{j}}">
+<view class="v">
 
   <view class="input">
     <label>联系电话</label>
-    <input class="input2" type="number" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
+    <input 
+    class="input2" 
+    type="number" 
+    value="{{phone}}" 
+    bindinput="inputHandle" 
+    data-prop="phone"
+    maxlength="11"
+    minlength="11"
+    />
   </view>
 
   <view class="input">
     <label>乘客人数</label>
-    <input class="input2" type="presionNumber" value="{{presionNumber}}" bindinput="inputHandle" data-prop="presionNumber"/>
+    <input 
+    class="input2" 
+    type="number" 
+    value="{{presionNumber}}" 
+    bindinput="inputHandle" 
+    data-prop="presionNumber"
+    maxlength="1"
+    minlength="1"
+    />
   </view>
 
   <view class="input">
-    <!-- <input type="time" value="{{departureTime}}" bindinput="inputHandle" data-prop="departureTime"/> -->
-    <picker mode="date" value="{{departureTime}}"
-      start="2017-10-01" end="2017-10-08"
-      bindchange="inputHandle" data-prop="departureTime">
-      <view class="tui-picker-detail">
+    <picker mode="date" 
+    value="{{departureTime}}"
+      start="2017-10-01" 
+      end="2017-10-08"
+      bindchange="inputHandle" 
+      data-prop="departureTime">
+      <view class="tui-picker-detail input2">
         出发日期: {{departureTime}}
       </view>
     </picker>
-    <picker mode="time" value="{{departureTime2}}"
-      start="00:00:00" end="23:00:00"
-      bindchange="inputHandle" data-prop="departureTime2">
-      <view class="tui-picker-detail">
+    <view> </view>
+    <picker mode="time" 
+    value="{{departureTime2}}"
+      start="00:00" 
+      end="23:00"
+      bindchange="inputHandle" 
+      data-prop="departureTime2">
+      <view class="tui-picker-detail input2">
         出发时间: {{departureTime2}}
       </view>
     </picker>
@@ -45,11 +67,9 @@
     </radio-group>
   </view>
 
-  <view bindtap="chooseLocationUp">点击选择上车地点:{{upCarTxt}}</view>
-  <view bindtap="chooseLocationDow">点击选择上车地点:{{dowCarTxt}}</view>
+  <view bindtap="chooseLocationUp" class="input2">点击选择上车地点:{{upCarTxt}}</view>
+  <view></view>
+  <view bindtap="chooseLocationDow" class="input2">点击选择上车地点:{{dowCarTxt}}</view>
 
   <view class="btn" bindtap="sub">确定下单</view>
-</view>
-<view wx:if="{{!j}}">
-  {{jtext}}
 </view>

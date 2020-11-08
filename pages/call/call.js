@@ -31,20 +31,16 @@ Page({
       null,
       function(e){
         if(!e.success){
-          // 如果没有未完成的订单，加载路线数据
+          // 如果没有未完成的订单
           that.loadingRoute()
         }else{
-          // 如果有未完成的订单，则跳转结算
-          that.toSettlement()
+          // 如果有未完成的订单
+          app.alter2("有未完成的订单，无法继续下单",'none')
         }
       },
       function(err){
       }
     )
-  },
-  // 跳转结算页面
-  toSettlement:function(){
-    this.setData({"call":2})
   },
    // 加载路线数据
   loadingRoute:function(){

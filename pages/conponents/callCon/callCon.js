@@ -13,13 +13,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // 是否有未结算订单
-    j:true,
-    // 提示消息
-    jtext:'',
     type:0,
     // 乘坐人数
-    presionNumber:1,
+    presionNumber: 1,
     // 联系电话
     phone:null,
     // 上车坐标
@@ -31,7 +27,7 @@ Component({
     // 是否包车
     isCharterCar:0,
     // 包车车型
-    charterCarType:0,
+    charterCarType:1,
     // 上车地点
     upCarLatitude:'',
     upCarLongitude:'',
@@ -100,18 +96,16 @@ Component({
           "endAddress":that.data.dowCarTxt
         },
         function(e){
-          // if(e.code === '0'){
-            // 请求成功
-            that.setData({j:false})
-            that.setData({jtext:e.msg})
-            // // 跳转至首页
-            // wx.navigateTo({
-            //   url: "/pages/index/index",
-            // })
-          // }else{
-          //   that.setData({j:false})
-          //   that.setData({jtext:e.msg})
-          // }
+          if(e.code === '0'){
+            app.alter3("",'success',function(){
+              // 跳转至首页
+              wx.navigateTo({
+                url: "/pages/index/index",
+              })
+            })
+          }else{
+            app.alter2("下单失败，请稍后重试",'none')
+          }
         },
         function(e){
         }

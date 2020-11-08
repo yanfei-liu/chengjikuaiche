@@ -1,3 +1,3 @@
 <!--pages/conponents/withdrawal/withdrawal.wxml-->
-<label>姓名</label>
-<input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
+<label>体现金额(元)</label>
+<input style="border-bottom:1px solid #ccc" type="text" value="{{jr}}" bindinput="inputHandle" data-prop="jr"/>
