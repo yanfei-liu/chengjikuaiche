@@ -65,7 +65,7 @@ Component({
         app.globalData.url+'/apply/findByPassengerId',
         {"passengerId":app.globalData.userId},
         function(e){
-          if(e.success){
+          if(!e.success){
             t.setData({v:true})
           }else{
             t.setData({msg:"您当前有未审核的申请记录"})
@@ -132,7 +132,7 @@ Component({
         function(e){
           if(e.success){
             t.setData({v:false})
-            t.setData({msg:"提交成功，请等待后台审核"})
+            t.setData({msg:"提交成功，请等待后台审核（1-3工作日）"})
           }else{
             t.setData({msg:e.message})
           }

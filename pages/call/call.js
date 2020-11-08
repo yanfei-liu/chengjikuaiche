@@ -15,7 +15,6 @@ Page({
     this.setData({
       call:1
     })
-    // this.selectComponent("#callCon").setType(e.target.dataset['call'])
     this.selectComponent("#callCon").setData({
       routeId:e.target.dataset['call']
     })
@@ -31,7 +30,7 @@ Page({
       app.globalData.url+'/order/getByUserId?uuid='+app.globalData.userId,
       null,
       function(e){
-        if(e.success){
+        if(!e.success){
           // 如果没有未完成的订单，加载路线数据
           that.loadingRoute()
         }else{

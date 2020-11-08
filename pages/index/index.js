@@ -6,9 +6,11 @@ Page({
   data: {
     // 是否是离线测试状态
     test:false,
-    // canIUse: wx.canIUse('button.open-type.getUserInfo'),//用户是否授权
-    // 是否登陆成功
-    canIUse:false,
+    // 判断小程序的API，回调，参数，组件等是否在当前版本可用。
+    hasUserInfo: false,
+    canIUse2: wx.canIUse('button.open-type.getUserInfo'),
+    // 是否登陆成功,false为消息提示
+    canIUse:true,
     // 是否是司机
     driver: app.globalData.driver,
     // 请求失败提示
@@ -35,15 +37,42 @@ Page({
   },
   // 默认加载
   onLoad: function (e){
+    let that = this
     if(app.globalData.test){
-      this.setData({canIUse:true})
-      this.setData({driver:true})
-      this.setData({test:true})
+      that.setData({canIUse:true})
+      that.setData({driver:true})
+      that.setData({test:true})
       // 定位
-      this.selectComponent("#maps").getPosition();
+      that.selectComponent("#maps").getPosition();
     }else{
-      this.load()
+      that.load()
     }
+    // wx.getSetting({
+    //   success: res => {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       if(app.globalData.test){
+    //         that.setData({canIUse:true})
+    //         that.setData({driver:true})
+    //         that.setData({test:true})
+    //         // 定位
+    //         that.selectComponent("#maps").getPosition();
+    //       }else{
+    //         that.load()
+    //       }
+    //     }else{
+    //       // 如果没有授权
+    //       wx.authorize({
+    //         scope: 'scope.userInfo',
+    //         success:function(res){
+    //           // 授权成功
+    //           that.onLoad();
+    //         },
+    //         fail:function(err){
+    //         },
+    //       })
+    //     }
+    //   }
+    // })
   },
   // 点击重试
   load:function(e){

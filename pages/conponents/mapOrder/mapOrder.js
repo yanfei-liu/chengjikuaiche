@@ -74,7 +74,6 @@ Component({
         });
       }
       t.setData({markers:markers})
-      console.log(t.data.markers)
     },
     // 点击地图marker获取该订单信息
     getOrder(e){

@@ -65,24 +65,48 @@ Component({
         }
       )
     },
-    // 更给订单为乘客未结算状态
+    // 更给订单为乘客下车未结算状态
     changeSettlement:function(e){
-      let that = this;
-      app.wxRequest(
-        "GET",
-        app.globalData.url+'/order/updateOrderTypeByOrderSn?orderSn='+e.target.dataset['call']+"&type=3",
-        null,
-        function(e){
-          if(e.success){
-            that.getData()
+      let t = this;
+      wx.getSetting({
+        success(res) {
+          // 判断有没有scope.userLocation授权
+          if (res.authSetting['scope.userLocation']) {
+            // 获取用户位置信息
+            wx.getLocation({
+              type: 'gcj02',
+              success: (r) => {
+                const latitude = r.latitude
+                const longitude = r.longitude
+                app.wxRequest(
+                  "GET",
+                  app.globalData.url+'/order/updateOrderOutCar?orderSn='+e.target.dataset['call']+"&coordinate="+latitude+";"+longitude,
+                  null,
+                  function(e){
+                    console.log(e)
+                    if(e.success){
+                      t.getData()
+                    }else{
+                      t.setData({success:false})
+                      t.setData({msg:"操作失败"})
+                    }
+                  },
+                  function(err){
+                  }
+                )
+              }
+            })
           }else{
-            that.setData({success:false})
-            that.setData({msg:"操作失败"})
+            wx.authorize({
+              scope: 'scope.userLocation',
+              success:function(res){
+                // 授权成功
+                t.changeSettlement(e);
+              }
+            })
           }
-        },
-        function(err){
         }
-      )
+      })
     }
   }
 })
