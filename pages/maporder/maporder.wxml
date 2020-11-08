@@ -1,4 +1,7 @@
 <!--pages/maporder/maporder.wxml-->
-<view style="width:100vw;height:100vh;">
-  <mapOrder id="mapOrder"></mapOrder>
+<view style="width:100vw;height:100vh;" wx:if="{{success}}">
+  <mapOrder id="mapOrder" bind:toReload="toReload"></mapOrder>
+</view>
+<view wx:if="{{!success}}">
+  {{msg}}
 </view>

@@ -4,6 +4,8 @@
     "history":"/pages/conponents/history/history",
     "customer":"/pages/conponents/customer/customer",
     "withdrawal":"/pages/conponents/withdrawal/withdrawal",
-    "unsettled":"/pages/conponents/unsettled/unsettled"
+    "unsettled":"/pages/conponents/unsettled/unsettled",
+    "unsettledB":"/pages/conponents/unsettledB/unsettledB",
+    "historyB":"/pages/conponents/historyB/historyB"
   }
 }

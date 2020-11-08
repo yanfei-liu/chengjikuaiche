@@ -62,7 +62,7 @@ Page({
         url: '/pages/maporder/maporder?routeId='+uuid+"&date="+d
       })
     }else{
-      // 如果没有订单
+      // 如果没有选择日期
       t.setData({success:true})
       t.setData({msg:"请选择出发日期"})
     }

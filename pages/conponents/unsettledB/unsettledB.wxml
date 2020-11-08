@@ -1,0 +1,25 @@
+<!--pages/conponents/unsettledB/unsettledB.wxml-->
+<view class="route" wx:if="{{success}}">
+  <view wx:for="{{orders}}" wx:key="item">
+    <view class="route1">
+      <view>订单编号：{{item.orderSn}}</view>
+      <view>出发地：{{item.startAddress}}</view>
+      <view>目的地：{{item.endAddress}}</view>
+      <view>是否包车：{{item.isCharterCar === '1' ? '是' : '否'}}</view>
+      <view>乘坐人数：{{item.presionNumber}}人</view>
+      <view>价格：{{item.orderAmount}}元</view>
+    </view>
+    <view class="route2">
+      <view wx:if="{{item.orderType === '1'}}" class="callCar" bindtap="changeUpCar" data-call="{{item.orderSn}}">
+        乘客已全部上车,开始订单
+      </view>
+      <view wx:if="{{item.orderType === '2'}}" bindtap="changeSettlement" class="callCar" data-call="{{item.orderSn}}">
+        乘客已全部下车,结束订单
+      </view>
+      <view wx:if="{{item.orderType === '3'}}" class="callCar" data-call="{{item.orderSn}}">
+        等待结算
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{!success}}">{{msg}}</view>

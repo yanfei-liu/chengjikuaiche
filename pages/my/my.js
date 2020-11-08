@@ -14,8 +14,10 @@ Page({
     application: false,
     // 是否显示未结算订单
     unsettled:false,
+    unsettledB:false,
     // 是否显示历史订单页面
     history:false,
+    historyB:false,
     // 是否显示客服页面
     customer:false
     // 是否显示体现页面
@@ -38,7 +40,9 @@ Page({
       men:false,
       history:false,
       customer:false,
-      unsettled:false
+      unsettled:false,
+      unsettledB:false,
+      historyB:false
     }
     t.setData(arr)
     if(i == 11){
@@ -52,7 +56,18 @@ Page({
       t.selectComponent("#history").getData()
     }else if(i == 14){
       t.setData({customer:true})
-    }else{
+    }else if(i == 21){
+      t.setData({withdrawal:true})
+      // t.selectComponent("#withdrawal").getData()
+    }else if(i == 22){
+      t.setData({unsettledB:true})
+      t.selectComponent("#unsettledB").getData()
+    }else if(i == 23){
+      t.setData({historyB:true})
+      t.selectComponent("#historyB").getData()
+    }
+    
+    else{
       t.setData({men:true})
     }
   },

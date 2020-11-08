@@ -9,7 +9,10 @@ Page({
     // 路线id
     routeId:null,
     // 查询时间
-    date:null
+    date:null,
+    // 
+    success:true,
+    msg:''
   },
 
   /**
@@ -37,7 +40,7 @@ Page({
           t.selectComponent("#mapOrder").toInit(e.data)
         }else{
           // 如果没有订单
-          t.setData({success:true})
+          t.setData({success:false})
           t.setData({msg:"当前所选线路暂时没有订单"})
         }
       },
@@ -45,7 +48,10 @@ Page({
       }
     )
   },
-
+  // 刷新页面
+  toReload:function(e){
+    this.onLoad()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

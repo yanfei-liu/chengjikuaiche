@@ -74,6 +74,7 @@ Component({
         });
       }
       t.setData({markers:markers})
+      console.log(t.data.markers)
     },
     // 点击地图marker获取该订单信息
     getOrder(e){
@@ -113,17 +114,20 @@ Component({
         app.globalData.url+'/order/updateJieDan?orderSn='+t.data.orderSn+"&uuid="+app.globalData.userId,
         null,
         function(e){
-          console.log(e)
           if(e.success){
             console.log("接单成功")
             t.toInit(t.data.eData)
-          }else{
-
+            t.setData({orderView:false})
+            t.setData({markers:[]})
           }
         },
         function(e){
         }
       )
+    },
+    // 返回页面
+    toReload(){
+      this.triggerEvent('toReload');
     }
   }
 })

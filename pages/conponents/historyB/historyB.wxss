@@ -1,0 +1,21 @@
+/* pages/conponents/historyB/historyB.wxss */
+.con{
+  width: 100%;
+  padding: 10rpx;
+  background-color: cadetblue;
+  margin-bottom: 10rpx;
+}
+.tr{
+  width: 100%;
+  padding: 5rpx;
+  color: white;
+}
+.complete{
+  background-color: green;
+}
+.finished{
+  background-color: #ff9900;
+}
+.cancel{
+  background-color: #cccccc;
+}

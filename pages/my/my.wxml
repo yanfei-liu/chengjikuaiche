@@ -34,8 +34,10 @@
 <applyDriver id="applyDriver" wx:if="{{application}}"></applyDriver>
 <!-- 未结算订单 -->
 <unsettled id="unsettled" wx:if="{{unsettled}}"></unsettled>
+<unsettledB id="unsettledB" wx:if="{{unsettledB}}"></unsettledB>
 <!-- 历史订单 -->
 <history id="history" wx:if="{{history}}"></history>
+<historyB id="historyB" wx:if="{{historyB}}"></historyB>
 <!-- 客服 -->
 <customer id="customer" wx:if="{{customer}}"></customer>
 <!-- 提现 -->

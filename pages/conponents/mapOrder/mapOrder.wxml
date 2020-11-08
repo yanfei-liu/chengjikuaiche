@@ -25,3 +25,5 @@ bindcallouttap="getOrder"
     </view>
   </view>
 </view>
+
+<!-- <view wx:if="{{success}}">{{msg}}</view> -->

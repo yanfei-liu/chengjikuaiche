@@ -1,2 +1,3 @@
 <!--pages/conponents/withdrawal/withdrawal.wxml-->
-<text>pages/conponents/withdrawal/withdrawal.wxml</text>
+<label>姓名</label>
+<input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
