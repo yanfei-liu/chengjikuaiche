@@ -34,7 +34,7 @@ Component({
         null,
         function(e){
           if(!e.success){
-            that.setData({item:e.data[0]})
+            that.setData({item:e})
           }else{
             that.setData({success:false})
           }
