@@ -1,5 +1,5 @@
 <!--pages/conponents/unsettledB/unsettledB.wxml-->
-<view class="route" wx:if="{{success}}">
+<view class="route">
   <view wx:for="{{orders}}" wx:key="item">
     <view class="route1">
       <view>订单编号：{{item.orderSn}}</view>
@@ -22,4 +22,3 @@
     </view>
   </view>
 </view>
-<view wx:if="{{!success}}">{{msg}}</view>

@@ -13,10 +13,6 @@
       <view bindtap="goToViews" data-id="2">我的</view>
     </view>
     <view style="color:red;z-index: 999;position: absolute;" wx:if="{{test}}">测试状态</view>
-  </view> 
-
-  <view class="v2" wx:if="{{!canIUse}}">
-    <view>{{msg}}</view>
   </view>
 </view>
 <view wx:if="{{!canIUse2}}">

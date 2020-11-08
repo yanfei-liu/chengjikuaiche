@@ -43,7 +43,6 @@ Component({
     head:'',
     // 车尾正部照片
     rear:'',
-    msg:'',
     v:false
   },
 
@@ -68,7 +67,7 @@ Component({
           if(!e.success){
             t.setData({v:true})
           }else{
-            t.setData({msg:"您当前有未审核的申请记录"})
+            app.alter2("您当前已经申请成为司机，请等待后台审核",'none')
           }
         },
         function(e){
@@ -93,9 +92,6 @@ Component({
                 url: app.globalData.url+'/file/upload',
                 filePath: tempFilePaths[0],
                 name: "multipartFile",
-                // formData: {
-                //   'user': 'test'
-                // },
                 success (res){
                   let d = JSON.parse(res.data);
                   if(d.uploaded == 1){
@@ -132,9 +128,9 @@ Component({
         function(e){
           if(e.success){
             t.setData({v:false})
-            t.setData({msg:"提交成功，请等待后台审核（1-3工作日）"})
+            app.alter2("申请成功，请等待后台审核",'none')
           }else{
-            t.setData({msg:e.message})
+            app.alter2('操作失败，请稍后重试','none')
           }
         },
         function(e){

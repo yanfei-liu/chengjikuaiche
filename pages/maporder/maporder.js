@@ -10,9 +10,6 @@ Page({
     routeId:null,
     // 查询时间
     date:null,
-    // 
-    success:true,
-    msg:''
   },
 
   /**
@@ -36,21 +33,17 @@ Page({
       },
       function(e){
         if(e.success){
-          // 地图描点
+          app.alter2("",'success')
+          // 从新加载地图描点
           t.selectComponent("#mapOrder").toInit(e.data)
         }else{
           // 如果没有订单
-          t.setData({success:false})
-          t.setData({msg:"当前所选线路暂时没有订单"})
+          app.alter2("当前线路没有订单",'none')
         }
       },
       function(e){
       }
     )
-  },
-  // 刷新页面
-  toReload:function(e){
-    this.onLoad()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

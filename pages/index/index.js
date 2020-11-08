@@ -12,9 +12,7 @@ Page({
     // 是否登陆成功,false为消息提示
     canIUse:true,
     // 是否是司机
-    driver: app.globalData.driver,
-    // 请求失败提示
-    msg:''
+    driver: app.globalData.driver
   },
   // 跳转至其它页面
   goToViews: function(e){
@@ -112,12 +110,11 @@ Page({
               // 加载当前定位
               that.position()
             }else{
-              that.setData({msg:"登录错误："+e.message})
               that.setData({canIUse:false})
+              app.alter2("登录失败："+e.message,'none')
             }
           },
           function(e){
-            that.setData({msg:"服务器连接失败"})
             that.setData({canIUse:false})
           })
         }

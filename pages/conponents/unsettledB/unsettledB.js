@@ -14,14 +14,8 @@ Component({
   data: {
     // 未结算单据实体
     orders:[],
-    // 是否显示未结算订单
-    success:true,
     // 是否显示结算按钮
-    orderType:0,
-    // 是否计算成功
-    success2:false,
-    // 消息
-    msg:''
+    orderType:0
   },
 
   /**
@@ -38,8 +32,7 @@ Component({
           if(!e.success){
             that.setData({orders:e})
           }else{
-            that.setData({success:false})
-            that.setData({msg:"没有未完成订单"})
+            app.alter2("没有未完成订单",'none')
           }
         },
         function(err){
@@ -55,10 +48,10 @@ Component({
         null,
         function(e){
           if(e.success){
+            app.alter2("",'success')
             that.getData()
           }else{
-            that.setData({success:false})
-            that.setData({msg:"操作失败"})
+            app.alter2("订单状态更改失败",'none')
           }
         },
         function(err){
@@ -83,12 +76,11 @@ Component({
                   app.globalData.url+'/order/updateOrderOutCar?orderSn='+e.target.dataset['call']+"&coordinate="+latitude+";"+longitude,
                   null,
                   function(e){
-                    console.log(e)
                     if(e.success){
+                      app.alter2("",'success')
                       t.getData()
                     }else{
-                      t.setData({success:false})
-                      t.setData({msg:"操作失败"})
+                      app.alter2("订单状态更改失败",'none')
                     }
                   },
                   function(err){

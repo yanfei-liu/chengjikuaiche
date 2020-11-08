@@ -85,7 +85,5 @@
       <button class="btn" bindtap="chooseImg" data-prop="rear" style="width:100%">上传</button>
     </view>
 
-    <view>{{msg}}</view>
     <button class="btn" bindtap="sub" style="margin-top:5px;width:100%">提交</button>
 </view>
-<view wx:if="{{!v}}">{{msg}}</view>
