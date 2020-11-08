@@ -33,7 +33,7 @@ Component({
         app.globalData.url+'/order/getByUserId?uuid='+app.globalData.userId,
         null,
         function(e){
-          if(!e.success){
+          if(e.success){
             that.setData({item:e})
           }else{
             that.setData({success:false})
