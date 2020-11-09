@@ -25,18 +25,17 @@ App({
       dataType: 'json',
       success: res => {
         wx.hideLoading()
-        console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
+        }else{
+          console.log(res)
+          this.alter2("服务器连接失败",'none')
         }
       },
       fail: err =>{
         wx.hideLoading()
-        if(err.errMsg === "request:fail timeout"){
-          this.alter2("服务器连接超时",'none')
-        }else{
-          console.log(err)
-        }
+        this.alter2("服务器连接失败",'none')
+        console.log(err)
         errFun(err);
       }
     })
@@ -58,18 +57,17 @@ App({
       dataType: 'json',
       success: res => {
         wx.hideLoading()
-        console.log(res)
         if(res.statusCode == 200){
           callback(res.data);
+        }else{
+          console.log(res)
+          this.alter2("服务器连接失败",'none')
         }
       },
       fail: err =>{
         wx.hideLoading()
-        if(err.errMsg === "request:fail timeout"){
-          this.alter2("服务器连接超时",'none')
-        }else{
-          console.log(err)
-        }
+        this.alter2("服务器连接失败",'none')
+        console.log(err)
         errFun(err);
       }
     })
@@ -166,7 +164,7 @@ App({
   },
   globalData: {
     // 是否模拟登陆成功，以便于测试时不连服务器也可以进入主页面
-    test:true,
+    test:false,
     // 用户id
     userId:null,
     // tokn

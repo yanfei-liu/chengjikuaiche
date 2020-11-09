@@ -15,11 +15,9 @@ Component({
     // 未结算单据实体
     item:{},
     // 是否显示未结算订单
-    success:true,
+    success:false,
     // 是否显示结算按钮
     orderType:0,
-    // 是否计算成功
-    success2:false
   },
 
   /**
@@ -34,9 +32,11 @@ Component({
         null,
         function(e){
           if(e.success){
+            that.setData({success:true})
             that.setData({item:e.data[0]})
           }else{
             that.setData({success:false})
+            app.alter2("没有未结算订单",'none')
           }
         },
         function(err){
@@ -53,11 +53,9 @@ Component({
         function(e){
           if(e.success){
             that.setData({success:false})
-            that.setData({success2:true})
+            app.alter2("结算成功",'none')
           }else{
-            that.setData({success:false})
-            that.setData({success2:false})
-            that.setData({success3:true})
+            app.alter2("结算失败，稍后重试",'none')
           }
         },
         function(err){

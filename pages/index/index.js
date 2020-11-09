@@ -10,7 +10,7 @@ Page({
     hasUserInfo: false,
     canIUse2: wx.canIUse('button.open-type.getUserInfo'),
     // 是否登陆成功,false为消息提示
-    canIUse:true,
+    canIUse:false,
     // 是否是司机
     driver: app.globalData.driver
   },
@@ -96,7 +96,6 @@ Page({
           {"code":res.code},
           function(e){
             if("0" === e.code){
-              that.setData({canIUse:true})
               let d = e.data;
               // 截取是否是司机的标识
               let d2 = d.substring(0,1);
@@ -109,13 +108,13 @@ Page({
               app.globalData.userId = e.id
               // 加载当前定位
               that.position()
+              that.setData({canIUse:true})
             }else{
               that.setData({canIUse:false})
               app.alter2("登录失败："+e.message,'none')
             }
           },
           function(e){
-            that.setData({canIUse:false})
           })
         }
       })

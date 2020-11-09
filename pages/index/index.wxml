@@ -1,8 +1,5 @@
 <!--index.wxml-->
 <view wx:if="{{canIUse2}}">
-  <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-    获取头像昵称
-  </button> -->
   <view class="v" wx:if="{{canIUse}}">
     <view class="m" style="position: absolute;z-index: 1;">
       <maps id="maps"></maps>
