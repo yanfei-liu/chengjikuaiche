@@ -20,7 +20,7 @@ App({
       header: {
         'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
         'Accept': 'application/json',
-        'token':this.globalData.token
+        'LTokenD':this.globalData.token
       },
       dataType: 'json',
       success: res => {
@@ -52,7 +52,7 @@ App({
       header: {
         'content-type': 'application/json',
         'Accept': 'application/json',
-        'token':this.globalData.token
+        'LTokenD':this.globalData.token
       },
       dataType: 'json',
       success: res => {
@@ -172,7 +172,7 @@ App({
     // 是否是司机
     driver:false,
     // 全局请求地址
-    // url:'http://localhost:9000'
-    url:'http://3h517648u8.wicp.vip'
+    url:'http://localhost:9000'
+    // url:'http://3h517648u8.wicp.vip'
   }
 })
