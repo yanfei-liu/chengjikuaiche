@@ -13,7 +13,7 @@
   <view bindtap="goToViews" data-prop="11" wx:if="{{!driver}}">申请成为司机</view>
   <view bindtap="goToViews" data-prop="12">未结算订单</view>
   <view bindtap="goToViews" data-prop="13">历史订单</view>
-  <view bindtap="goToViews" data-prop="14">客服</view>
+  <!-- <view bindtap="goToViews" data-prop="14">客服</view> -->
 
   <!-- 客户  非司机 -->
   <!-- <view wx:if="{{!driver}}">
