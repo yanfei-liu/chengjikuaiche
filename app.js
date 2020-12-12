@@ -105,8 +105,6 @@ App({
     // 登录
     // wx.login({
     //   success: res => {
-    //     var appId = 'wx9616cb5f7cfbe837';
-    //     var secret = '2797b46b7d86f643b6235b2a53312663';
     //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
     //     that.wxRequest(
     //       "POST",
@@ -163,8 +161,6 @@ App({
     // })
   },
   globalData: {
-    // 是否模拟登陆成功，以便于测试时不连服务器也可以进入主页面
-    test:false,
     // 用户id
     userId:null,
     // tokn

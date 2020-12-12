@@ -4,8 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    // 是否是离线测试状态
-    test:false,
     // 判断小程序的API，回调，参数，组件等是否在当前版本可用。
     hasUserInfo: false,
     canIUse2: wx.canIUse('button.open-type.getUserInfo'),
@@ -36,15 +34,7 @@ Page({
   // 默认加载
   onLoad: function (e){
     let that = this
-    if(app.globalData.test){
-      that.setData({canIUse:true})
-      that.setData({driver:true})
-      that.setData({test:true})
-      // 定位
-      that.selectComponent("#maps").getPosition();
-    }else{
-      that.load()
-    }
+    that.load()
     // wx.getSetting({
     //   success: res => {
     //     if (res.authSetting['scope.userInfo']) {
@@ -87,8 +77,6 @@ Page({
     // 登录
     wx.login({
       success: res => {
-        // var appId = 'wx9616cb5f7cfbe837';
-        // var secret = '2797b46b7d86f643b6235b2a53312663';
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         app.wxRequest(
           "POST",
