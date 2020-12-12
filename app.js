@@ -172,7 +172,7 @@ App({
     // 是否是司机
     driver:false,
     // 全局请求地址
-    url:'http://localhost:9000'
-    // url:'http://3h517648u8.wicp.vip'
+    // url:'http://localhost:9000'
+    url:'http://3h517648u8.wicp.vip'
   }
 })

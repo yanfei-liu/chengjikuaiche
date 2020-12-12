@@ -106,9 +106,9 @@ Page({
               app.globalData.token = d.substring(1);
               // 用户id
               app.globalData.userId = e.id
+              that.setData({canIUse:true})
               // 加载当前定位
               that.position()
-              that.setData({canIUse:true})
             }else{
               that.setData({canIUse:false})
               app.alter2("登录失败："+e.message,'none')

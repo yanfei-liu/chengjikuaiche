@@ -1,4 +1,14 @@
 <!--pages/maporder/maporder.wxml-->
 <view style="width:100vw;height:100vh;">
-  <mapOrder id="mapOrder" bind:toReload="toReload"></mapOrder>
+  <!-- <mapOrder id="mapOrder" bind:toReload="toReload"></mapOrder> -->
+  <view wx:for="{{datas}}" wx:key="item" class="item">
+    <view class="route1">
+      <view>出发地：{{item.startAddress}}</view>
+      <view>目的地：{{item.endAddress}}</view>
+      <view>手机号：{{item.phone}}</view>
+    </view>
+    <view class="route2">
+      <view bindtap="toAccept" data-call="{{item.orderSn}}">接单</view>
+    </view>
+  </view>
 </view>

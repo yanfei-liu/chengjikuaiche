@@ -48,12 +48,29 @@ Component({
       let that = this;
       app.wxRequest(
         "GET",
-        app.globalData.url+'/order/orderSetting?orderSn='+e.target.dataset['call'],
+        app.globalData.url+'/PayMent/prePay?orderSn='+e.target.dataset['call'],
         null,
         function(e){
           if(e.success){
-            that.setData({success:false})
-            app.alter2("结算成功",'none')
+            // 结算
+            wx.requestPayment({
+              timeStamp: e.payMap.timeStamp,
+              nonceStr: e.payMap.nonceStr,
+              package: e.payMap.package,
+              signType: e.payMap.signType,
+              paySign: e.payMap.paySign,
+              success (res) {
+                console.log(res)
+                if(res.errMsg === "requestPayment:ok"){
+                  // 通知后台支付成功
+                   that.setData({success:false})
+                   app.alter2("结算成功",'none')
+                }
+              },
+              fail (res) {
+                console.log(res)
+              }
+            })
           }else{
             app.alter2("结算失败，稍后重试",'none')
           }
@@ -61,6 +78,6 @@ Component({
         function(err){
         }
       )
-    }
+    },
   }
 })

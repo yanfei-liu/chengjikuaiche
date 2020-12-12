@@ -1,9 +1,16 @@
 <!--pages/receiving/receiving.wxml-->
 <view>
-  <picker wx:if="{{routes.length > 0}}" mode="date" class="picker" value="{{goDate}}" start="2017-10-01" end="9999-12-31" bindchange="inputHandle"
-    data-prop="goDate">
-    <view class="tui-picker-detail">
-      出发日期: {{goDate}}
+  <picker wx:if="{{routes.length > 0}}" 
+    mode="date" 
+    class="picker" 
+    value="{{goDate}}" 
+    start="2017-10-01" 
+    end="9999-12-31" 
+    bindchange="inputHandle"
+    data-prop="goDate"
+    >
+    <view class="tui-picker-detail picker">
+      点击选择日期: {{goDate}}
     </view>
   </picker>
   <view wx:for="{{routes}}" wx:key="item" class="route">

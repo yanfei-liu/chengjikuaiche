@@ -17,6 +17,3 @@
   text-align: center;
   background-color:teal;
 }
-.route2 .callCar{
-  margin-right: 10%;
-}
