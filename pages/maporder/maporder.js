@@ -25,6 +25,7 @@ Page({
   // 获取订单数据并标注于地图
   toMap:function(){
     let t = this
+    t.setData({datas:[]})
     // 获取订单数据
     app.wxRequest(
       "POST",

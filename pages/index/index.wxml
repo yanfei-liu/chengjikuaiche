@@ -5,8 +5,8 @@
       <maps id="maps"></maps>
     </view>
     <view class="bottom2" style="position: absolute;z-index: 2;">
-      <view bindtap="goToViews" data-id="3" wx:if="{{driver}}">接单</view>
-      <view bindtap="goToViews" data-id="1">叫车</view>
+      <view wx:if="{{driver}}" bindtap="goToViews" data-id="3">接单</view>
+      <view wx:if="{{!driver}}" bindtap="goToViews" data-id="1">叫车</view>
       <view bindtap="goToViews" data-id="2">我的</view>
     </view>
     <view style="color:red;z-index: 999;position: absolute;" wx:if="{{test}}">测试状态</view>

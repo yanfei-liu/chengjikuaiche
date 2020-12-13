@@ -5,6 +5,9 @@
     <view class="route1">
       <view>出发地：{{item.startAddress}}</view>
       <view>目的地：{{item.endAddress}}</view>
+      <view>出发时间：{{item.departureTime}}</view>
+      <view>是否包车：{{item.isCharterCar == '1' ? '是' : '否'}}</view>
+      <view>乘坐人数：{{item.presionNumber}}</view>
       <view>手机号：{{item.phone}}</view>
     </view>
     <view class="route2">

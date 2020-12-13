@@ -1,14 +1,7 @@
 /* pages/conponents/unsettledB/unsettledB.wxss */
 .route{
-  width: 100%;
   background-color:cadetblue;
   color: white;
-  margin-bottom: 3px;
-  height: auto;
-}
-.route1{
-  width: 100%;
-  height: auto;
 }
 .route2 .callCar{
   width: 100%;

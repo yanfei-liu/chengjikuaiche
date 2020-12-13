@@ -104,7 +104,7 @@ Component({
               })
             })
           }else{
-            app.alter2("下单失败，请稍后重试",'none')
+            app.alter2("下单失败，请检查输入项或稍后重试",'none')
           }
         },
         function(e){

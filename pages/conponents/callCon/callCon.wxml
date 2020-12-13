@@ -22,8 +22,8 @@
     value="{{presionNumber}}" 
     bindinput="inputHandle" 
     data-prop="presionNumber"
-    maxlength="1"
-    minlength="1"
+    max="6"
+    min="1"
     />
   </view>
 
@@ -38,7 +38,7 @@
         出发日期: {{departureTime}}
       </view>
     </picker>
-    <view> </view>
+    <view style="height:20rpx;"> </view>
     <picker mode="time" 
     value="{{departureTime2}}"
       start="00:00" 
@@ -68,8 +68,9 @@
   </view>
 
   <view bindtap="chooseLocationUp" class="input2">点击选择上车地点:{{upCarTxt}}</view>
-  <view></view>
+  <view style="height:20rpx;"></view>
   <view bindtap="chooseLocationDow" class="input2">点击选择上车地点:{{dowCarTxt}}</view>
 
-  <view class="btn" bindtap="sub">确定下单</view>
+  <view style="height:20rpx;"> </view>
+  <button class="weui-btn" type="primary" bindtap="sub">确定</button>
 </view>

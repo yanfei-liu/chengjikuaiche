@@ -2,13 +2,13 @@
 <view class="v" wx:if="{{v}}">
 
     <label>姓名</label>
-    <input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name"/>
+    <input class="input" type="text" value="{{name}}" bindinput="inputHandle" data-prop="name" minlength="2" maxlength="6"/>
 
     <label>身份证号</label>
-    <input class="input" type="text" value="{{nameId}}" bindinput="inputHandle" data-prop="nameId"/>
+    <input class="input" type="text" value="{{nameId}}" bindinput="inputHandle" data-prop="nameId" minlength="18" maxlength="18"/>
 
     <label>联系电话</label>
-    <input class="input" type="text" value="{{phone}}" bindinput="inputHandle" data-prop="phone"/>
+    <input class="input" type="text" value="{{phone}}" bindinput="inputHandle" data-prop="phone" minlength="11" maxlength="11"/>
 
     <label>身份证正面</label>
     <view>
@@ -46,10 +46,13 @@
     value="{{vehicleModel}}" 
     bindinput="inputHandle"
     placeholder="宝骏530" 
+    minlength="1"
+    maxlength="15"
     data-prop="vehicleModel"/>
 
     <label>车辆颜色</label>
-    <input class="input" type="text" value="{{vehicleColor}}" bindinput="inputHandle" data-prop="vehicleColor"/>
+    <input class="input" type="text" value="{{vehicleColor}}" bindinput="inputHandle" data-prop="vehicleColor" minlength="1"
+    maxlength="15"/>
 
     <picker mode="date"  class="picker"
       value="{{vehicleDate}}" 

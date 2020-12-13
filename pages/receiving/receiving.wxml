@@ -1,25 +1,37 @@
 <!--pages/receiving/receiving.wxml-->
 <view>
-  <picker wx:if="{{routes.length > 0}}" 
-    mode="date" 
-    class="picker" 
-    value="{{goDate}}" 
-    start="2017-10-01" 
-    end="9999-12-31" 
-    bindchange="inputHandle"
-    data-prop="goDate"
-    >
-    <view class="tui-picker-detail picker">
-      点击选择日期: {{goDate}}
+  <view class="weui-cell weui-cell_active route" wx:if="{{routes.length > 0}}">
+      <view class="weui-cell__hd" style="text-align:right">
+          <view class="weui-label">查询日期:</view>
+      </view>
+      <view class="weui-cell__bd">
+          <picker mode="date" 
+          value="{{goDate}}" 
+          start="2017-10-01" 
+          end="9999-12-31" 
+          bindchange="inputHandle"
+          data-prop="goDate"
+          >
+              <view class="weui-input" style="padding-left:15rpx;">{{goDate}}</view>
+          </picker>
+      </view>
+  </view>
+
+  <view wx:for="{{routes}}" wx:key="item" class="weui-cells weui-cells_after-title route">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}
+      </view>
     </view>
-  </picker>
-  <view wx:for="{{routes}}" wx:key="item" class="route">
-    <view class="route1">
-      <view>出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}</view>
-      <view>目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}
+      </view>
     </view>
-    <view class="route2">
-      <view bindtap="getOrders" data-call="{{item.uuid}}">查询订单</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style="text-align: center;">
+        <view bindtap="getOrders" data-call="{{item.uuid}}">点击查询订单</view>
+      </view>
     </view>
   </view>
 </view>

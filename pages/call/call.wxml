@@ -1,14 +1,28 @@
 <!--pages/call/call.wxml-->
 <!-- 路线页面 -->
 <view wx:if="{{call == 0}}">
-  <view wx:for="{{routes}}" wx:key="item" class="route">
-    <view class="route1">
-      <view>出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}</view>
-      <view>目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}</view>
-      <view>价格：单人{{item.oneUserPrice}}元,5坐包车{{item.fiveSeatsPrice}}元,7坐包车{{item.sevenSeatsPrice}}元</view>
-    </view>
-    <view class="route2">
-      <view bindtap="callCar" data-call="{{item.uuid}}">叫车</view>
+  <view wx:for="{{routes}}" wx:key="item">
+    <view class="weui-cells weui-cells_after-title route">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              出发地：{{item.provinceOne}}{{item.cityOne}}{{item.countyOne}}{{item.regionOne}}
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              目的地：{{item.provinceTwo}}{{item.cityTwo}}{{item.countyTwo}}{{item.regionTwo}}
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              价格：单人{{item.oneUserPrice}}元,5坐包车{{item.fiveSeatsPrice}}元,7坐包车{{item.sevenSeatsPrice}}元
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd" style="text-align: center;">
+              <view bindtap="callCar" data-call="{{item.uuid}}">叫车</view>
+            </view>
+        </view>
     </view>
   </view>
 </view>
