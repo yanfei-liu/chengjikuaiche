@@ -1,3 +1,28 @@
 <!--pages/conponents/withdrawal/withdrawal.wxml-->
-<label>体现金额(元)</label>
-<input style="border-bottom:1px solid #ccc" type="text" value="{{jr}}" bindinput="inputHandle" data-prop="jr"/>
+<view>
+  <view class="weui-form__control-area">
+    <view class="weui-cells__group weui-cells__group_form">
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">余额(元):</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" style="color: #a29e9e!important;" disabled placeholder-class="weui-input__placeholder" value="{{ktxje}}" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active" style="margin-bottom:30rpx;">
+          <view class="weui-cell__hd">
+            <label class="weui-label">提现金额(元)</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder-class="weui-input__placeholder" type="digit" value="{{jr}}"
+              bindinput="inputHandle" data-prop="jr" maxlength="5"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <button class="weui-btn weui-btn_primary" bindtap="txs" disabled="{{disa}}">提 现</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

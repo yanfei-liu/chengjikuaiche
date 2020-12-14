@@ -1,1 +1,12 @@
 /* pages/conponents/withdrawal/withdrawal.wxss */
+.page{height:100%}.weui-label{width:4.1em}
+.weui-cell__hd{
+  background-color: cadetblue;
+  color:white;
+  margin-bottom: 30rpx;
+}
+.weui-btn_primary{
+  margin:20rpx;
+  background-color:var(--weui-TAG-TEXT-GREEN);
+  color:var(--weui-WHITE)
+}
