@@ -29,7 +29,11 @@ App({
           callback(res.data);
         }else{
           console.log(res)
-          this.alter2("服务器连接失败",'none')
+          if(res.statusCode == 404){
+            this.alter2("资源不存在",'none')
+          }else{
+            this.alter2("服务器连接失败",'none')
+          }
         }
       },
       fail: err =>{
