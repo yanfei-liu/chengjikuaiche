@@ -3,7 +3,7 @@
 <view class="v" wx:if="{{men}}">
 
   <!-- 司机 -->
-  <view bindtap="goToViews" data-prop="21" wx:if="{{driver}}">提现</view>
+  <!-- <view bindtap="goToViews" data-prop="21" wx:if="{{driver}}">提现</view> -->
   <view bindtap="goToViews" data-prop="22" wx:if="{{driver}}">未完成接单</view>
   <view bindtap="goToViews" data-prop="23" wx:if="{{driver}}">历史接单</view>
 

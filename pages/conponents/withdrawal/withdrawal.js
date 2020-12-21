@@ -62,7 +62,7 @@ Component({
       t.setData({disa:true})
       let j = t.data.jr
       let j2 = t.data.ktxje
-      if (j >= 10){
+      if (j >= 0){
         if(j2 - j < 0){
           app.alter2("提现金额不能大于余额",'none')
           t.setData({disa:false})
